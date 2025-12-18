@@ -744,53 +744,29 @@
             background: linear-gradient(135deg, #FFF9E6 0%, #FFE5B4 100%);
             border: 3px solid #FFD700;
             position: relative;
-            text-align: center;
             cursor: pointer;
             transition: transform 0.2s;
         }
 
         .mission-suggested:hover {
-            transform: translateY(-4px);
+            transform: translateY(-2px);
         }
 
         .suggested-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
             color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 11px;
             font-weight: bold;
-            display: inline-block;
-            margin-bottom: 15px;
         }
 
-        .mission-icon-large {
-            font-size: 64px;
-            margin: 10px 0;
-        }
-
-        .mission-title-large {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            margin: 10px 0;
-        }
-
-        .mission-subtitle {
-            font-size: 16px;
-            color: #666;
-            margin: 10px 0 15px;
-        }
-
-        .mission-reward {
-            font-size: 18px;
-            font-weight: bold;
+        .mission-reward-inline {
             color: #4CAF50;
-            margin: 15px 0;
-        }
-
-        .mission-reward .bonus {
-            color: #FFA500;
+            font-weight: bold;
             font-size: 14px;
         }
 
@@ -1109,22 +1085,29 @@
 
         <!-- MAIN APP (from previous prototype) -->
         <div class="main-app" id="mainApp">
-            <!-- Header Fisso con Streak & Punti -->
-            <div class="header-fixed">
-                <div class="streak-info">🔥 <span id="streakCount">1</span> giorno</div>
-                <div class="points-info">
-                    ⭐ <span id="pointsCount">30</span> punti • <span id="userLevel">Novizio</span>
+            <!-- Header Originale -->
+            <div class="header">
+                <h1>🍽️ Foodybank</h1>
+                <div class="streak-badge" id="streakBadge">
+                    🔥 Streak: <span id="streakCount">1</span> giorni
+                </div>
+                <div class="points-level">
+                    <div class="points">⭐ <span id="pointsCount">30</span> punti</div>
+                    <div class="level" id="userLevel">Novizio</div>
                 </div>
             </div>
 
             <div class="main-content">
                 <!-- 1. MISSION SUGGERITA (Chef di oggi) -->
                 <div class="mission-card mission-suggested" onclick="startChefMission()">
-                    <div class="suggested-badge">🌟 SUGGERITA PER TE</div>
-                    <div class="mission-icon-large">👨‍🍳</div>
-                    <h2 class="mission-title-large">Chef di oggi</h2>
-                    <p class="mission-subtitle">Hai 5 ingredienti pronti!</p>
-                    <div class="mission-reward">+30pt <span class="bonus">+bonus</span></div>
+                    <div class="suggested-badge">🌟 SUGGERITA</div>
+                    <div class="mission-header">
+                        <div class="mission-icon">👨‍🍳</div>
+                        <div class="mission-title">Chef di oggi</div>
+                    </div>
+                    <div class="mission-description">
+                        Hai 5 ingredienti pronti! <span class="mission-reward-inline">+30pt</span>
+                    </div>
                     <button class="btn-primary" onclick="event.stopPropagation(); startMission()">INIZIA MISSION</button>
                 </div>
 
@@ -1167,12 +1150,29 @@
                     </div>
                 </div>
 
-                <!-- 4. STATS GIORNALIERE -->
-                <div class="daily-stats">
-                    <h3 class="stats-title-small">💚 OGGI</h3>
-                    <div class="stats-row">
-                        <span class="stat-item-small">🌍 150g CO2</span>
-                        <span class="stat-item-small">💰 €8</span>
+                <!-- 4. STATS COMPLETE -->
+                <div class="stats-card">
+                    <div class="stats-title">
+                        <span style="margin-right: 8px;">💚</span>
+                        I TUOI NUMERI
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">🌍 0.2kg</div>
+                            <div class="stat-label">CO2 salvata</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">💰 €5</div>
+                            <div class="stat-label">Risparmiati</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">🍽️ 0</div>
+                            <div class="stat-label">Ricette</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">⚡ 1</div>
+                            <div class="stat-label">Giorni streak</div>
+                        </div>
                     </div>
                 </div>
             </div>
