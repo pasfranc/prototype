@@ -712,6 +712,247 @@
             40% { transform: translateY(-10px); }
             80% { transform: translateY(-5px); }
         }
+
+        /* HYBRID MODEL - NEW STYLES */
+
+        /* Header Fisso */
+        .header-fixed {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 12px 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 90;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .streak-info {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .points-info {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Mission Suggerita */
+        .mission-suggested {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFE5B4 100%);
+            border: 3px solid #FFD700;
+            position: relative;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .mission-suggested:hover {
+            transform: translateY(-4px);
+        }
+
+        .suggested-badge {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .mission-icon-large {
+            font-size: 64px;
+            margin: 10px 0;
+        }
+
+        .mission-title-large {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .mission-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin: 10px 0 15px;
+        }
+
+        .mission-reward {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin: 15px 0;
+        }
+
+        .mission-reward .bonus {
+            color: #FFA500;
+            font-size: 14px;
+        }
+
+        /* Products Pills */
+        .products-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .product-pill {
+            background: white;
+            border: 2px solid #FFA500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        /* Altre Missioni */
+        .other-missions {
+            margin: 20px 0;
+        }
+
+        .mission-card-small {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            min-height: 44px;
+        }
+
+        .mission-card-small:hover {
+            border-color: #4CAF50;
+            background: #f8fff8;
+            transform: translateX(4px);
+        }
+
+        .mission-card-small:active {
+            transform: scale(0.98);
+        }
+
+        .mission-emoji {
+            font-size: 28px;
+        }
+
+        .mission-name {
+            flex: 1;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .mission-points {
+            font-size: 14px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        /* Daily Stats */
+        .daily-stats {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            border-radius: 12px;
+            padding: 16px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .stats-title-small {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .stat-item-small {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Placeholder Screens */
+        .placeholder-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .placeholder-content {
+            max-width: 320px;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .placeholder-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .placeholder-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .placeholder-text {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .placeholder-desc {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        /* Responsive & Touch Targets */
+        @media (min-width: 320px) {
+            .mission-card-small,
+            .btn-primary,
+            .btn-secondary {
+                min-height: 44px;
+            }
+        }
+
+        /* Main content padding for fixed header */
+        .main-app .main-content {
+            padding-top: 20px;
+            padding-bottom: 100px;
+        }
     </style>
 </head>
 <body>
@@ -868,81 +1109,70 @@
 
         <!-- MAIN APP (from previous prototype) -->
         <div class="main-app" id="mainApp">
-            <div class="header">
-                <h1>🍽️ Foodybank</h1>
-                <div class="streak-badge" id="streakBadge">
-                    🔥 Streak: <span id="streakCount">1</span> giorni
-                </div>
-                <div class="points-level">
-                    <div class="points">⭐ <span id="pointsCount">25</span> punti</div>
-                    <div class="level" id="userLevel">Novizio</div>
+            <!-- Header Fisso con Streak & Punti -->
+            <div class="header-fixed">
+                <div class="streak-info">🔥 <span id="streakCount">1</span> giorno</div>
+                <div class="points-info">
+                    ⭐ <span id="pointsCount">30</span> punti • <span id="userLevel">Novizio</span>
                 </div>
             </div>
 
             <div class="main-content">
-                <!-- Mission del Giorno -->
-                <div class="mission-card" id="dailyMission">
-                    <div class="mission-header">
-                        <div class="mission-icon">🎯</div>
-                        <div class="mission-title">MISSION DI OGGI</div>
-                    </div>
-                    <div id="missionContent">
-                        <div class="mission-description">
-                            👨‍🍳 <strong>Chef di oggi</strong><br>
-                            Cosa cucini stasera? Ti suggeriamo ricette con quello che hai
-                        </div>
-                        <button class="btn-primary" onclick="startMission()">INIZIA MISSION</button>
-                    </div>
+                <!-- 1. MISSION SUGGERITA (Chef di oggi) -->
+                <div class="mission-card mission-suggested" onclick="startChefMission()">
+                    <div class="suggested-badge">🌟 SUGGERITA PER TE</div>
+                    <div class="mission-icon-large">👨‍🍳</div>
+                    <h2 class="mission-title-large">Chef di oggi</h2>
+                    <p class="mission-subtitle">Hai 5 ingredienti pronti!</p>
+                    <div class="mission-reward">+30pt <span class="bonus">+bonus</span></div>
+                    <button class="btn-primary" onclick="event.stopPropagation(); startMission()">INIZIA MISSION</button>
                 </div>
 
-                <!-- Da Usare Prima -->
+                <!-- 2. DA USARE PRIMA -->
                 <div class="alert-card">
                     <div class="alert-title">
                         <span class="alert-icon">⚠️</span>
                         DA USARE PRIMA
                     </div>
-                    <div class="food-list">
-                        <div class="food-item">
-                            <span class="food-emoji">🧀</span>
-                            <span>Mozzarella</span>
-                        </div>
-                        <div class="food-item">
-                            <span class="food-emoji">🍅</span>
-                            <span>Pomodori</span>
-                        </div>
-                        <div class="food-item">
-                            <span class="food-emoji">🥛</span>
-                            <span>Latte</span>
-                        </div>
+                    <div class="products-pills">
+                        <span class="product-pill">🧀 Mozzarella</span>
+                        <span class="product-pill">🍅 Pomodori</span>
+                        <span class="product-pill">🥛 Latte</span>
                     </div>
-                    <button class="btn-primary" onclick="suggestRecipe()" style="margin-top: 15px;">
-                        COSA CUCINO?
-                    </button>
+                    <button class="btn-secondary" onclick="suggestRecipe()">COSA CUCINO?</button>
                 </div>
 
-                <!-- Stats Personali -->
-                <div class="stats-card">
-                    <div class="stats-title">
-                        <span style="margin-right: 8px;">💚</span>
-                        I TUOI NUMERI
+                <!-- 3. ALTRE MISSIONI -->
+                <div class="other-missions">
+                    <h3 class="section-title">⚡ ALTRE MISSIONI</h3>
+                    <div class="mission-card-small" onclick="openPlaceholder('scatta')">
+                        <span class="mission-emoji">📸</span>
+                        <span class="mission-name">Scatta & Scopri</span>
+                        <span class="mission-points">+20pt</span>
                     </div>
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-value">🌍 0.2kg</div>
-                            <div class="stat-label">CO2 salvata</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">💰 €5</div>
-                            <div class="stat-label">Risparmiati</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">🍽️ 0</div>
-                            <div class="stat-label">Ricette</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">⚡ 1</div>
-                            <div class="stat-label">Giorni streak</div>
-                        </div>
+                    <div class="mission-card-small" onclick="openPlaceholder('spesa')">
+                        <span class="mission-emoji">🧾</span>
+                        <span class="mission-name">Spesa Smart</span>
+                        <span class="mission-points">+25pt</span>
+                    </div>
+                    <div class="mission-card-small" onclick="openPlaceholder('zero')">
+                        <span class="mission-emoji">⚠️</span>
+                        <span class="mission-name">Zero Spreco</span>
+                        <span class="mission-points">+10pt</span>
+                    </div>
+                    <div class="mission-card-small" onclick="openPlaceholder('frigo')">
+                        <span class="mission-emoji">✅</span>
+                        <span class="mission-name">Frigo Check</span>
+                        <span class="mission-points">+5pt</span>
+                    </div>
+                </div>
+
+                <!-- 4. STATS GIORNALIERE -->
+                <div class="daily-stats">
+                    <h3 class="stats-title-small">💚 OGGI</h3>
+                    <div class="stats-row">
+                        <span class="stat-item-small">🌍 150g CO2</span>
+                        <span class="stat-item-small">💰 €8</span>
                     </div>
                 </div>
             </div>
@@ -1070,6 +1300,47 @@
                 <button class="btn-primary" onclick="closeModal('zeroWasteModal')" style="margin-top: 15px;">
                     CHIUDI
                 </button>
+            </div>
+        </div>
+
+        <!-- PLACEHOLDER SCREENS -->
+        <div class="placeholder-screen hidden" id="placeholder-scatta">
+            <div class="placeholder-content">
+                <div class="placeholder-icon">📸</div>
+                <h2 class="placeholder-title">Scatta & Scopri</h2>
+                <p class="placeholder-text">Questa mission sarà disponibile presto!</p>
+                <p class="placeholder-desc">Scatta una foto del tuo frigo e scopri cosa puoi cucinare.</p>
+                <button class="btn-primary" onclick="goBackHome()">← Torna alla Home</button>
+            </div>
+        </div>
+
+        <div class="placeholder-screen hidden" id="placeholder-spesa">
+            <div class="placeholder-content">
+                <div class="placeholder-icon">🧾</div>
+                <h2 class="placeholder-title">Spesa Smart</h2>
+                <p class="placeholder-text">Questa mission sarà disponibile presto!</p>
+                <p class="placeholder-desc">Carica lo scontrino della spesa e traccia i tuoi acquisti.</p>
+                <button class="btn-primary" onclick="goBackHome()">← Torna alla Home</button>
+            </div>
+        </div>
+
+        <div class="placeholder-screen hidden" id="placeholder-zero">
+            <div class="placeholder-content">
+                <div class="placeholder-icon">⚠️</div>
+                <h2 class="placeholder-title">Zero Spreco</h2>
+                <p class="placeholder-text">Questa mission sarà disponibile presto!</p>
+                <p class="placeholder-desc">Verifica cosa hai usato e cosa è andato sprecato.</p>
+                <button class="btn-primary" onclick="goBackHome()">← Torna alla Home</button>
+            </div>
+        </div>
+
+        <div class="placeholder-screen hidden" id="placeholder-frigo">
+            <div class="placeholder-content">
+                <div class="placeholder-icon">✅</div>
+                <h2 class="placeholder-title">Frigo Check</h2>
+                <p class="placeholder-text">Questa mission sarà disponibile presto!</p>
+                <p class="placeholder-desc">Controlla velocemente cosa hai in frigo.</p>
+                <button class="btn-primary" onclick="goBackHome()">← Torna alla Home</button>
             </div>
         </div>
     </div>
@@ -1310,6 +1581,70 @@
                     </button>
                 `;
             }
+        }
+
+        // HYBRID MODEL - Navigation & Mock Data
+
+        // Mock Data
+        const mockData = {
+            user: {
+                streak: 1,
+                points: 30,
+                level: "Novizio"
+            },
+
+            suggestedMission: {
+                type: "chef_di_oggi",
+                title: "Chef di oggi",
+                emoji: "👨‍🍳",
+                points: 30,
+                bonus: 10
+            },
+
+            productsToUse: [
+                { name: "Mozzarella", emoji: "🧀" },
+                { name: "Pomodori", emoji: "🍅" },
+                { name: "Latte", emoji: "🥛" }
+            ],
+
+            otherMissions: [
+                { id: "scatta", title: "Scatta & Scopri", emoji: "📸", points: 20 },
+                { id: "spesa", title: "Spesa Smart", emoji: "🧾", points: 25 },
+                { id: "zero", title: "Zero Spreco", emoji: "⚠️", points: 10 },
+                { id: "frigo", title: "Frigo Check", emoji: "✅", points: 5 }
+            ],
+
+            todayStats: {
+                co2: "150g",
+                money: "€8"
+            }
+        };
+
+        // Navigation Functions
+        function startChefMission() {
+            // Avvia la mission Chef di oggi (già implementata)
+            startMission();
+        }
+
+        function openPlaceholder(missionId) {
+            // Nascondi main app
+            document.getElementById('mainApp').style.display = 'none';
+
+            // Mostra placeholder corrispondente
+            const placeholderEl = document.getElementById(`placeholder-${missionId}`);
+            if (placeholderEl) {
+                placeholderEl.classList.remove('hidden');
+            }
+        }
+
+        function goBackHome() {
+            // Nascondi tutti i placeholder
+            document.querySelectorAll('.placeholder-screen').forEach(el => {
+                el.classList.add('hidden');
+            });
+
+            // Mostra main app
+            document.getElementById('mainApp').style.display = 'block';
         }
 
         // Easter egg - tap logo 3 times
