@@ -1953,14 +1953,18 @@
         function closeMissionComplete() {
             closeModal('missionCompleteModal');
 
-            const missionContent = document.getElementById('missionContent');
-            if (missionContent) {
-                missionContent.innerHTML = `
-                    <div class="mission-description" style="color: #4CAF50; text-align: center;">
-                        ✅ <strong>Mission Completata!</strong><br>
-                        Torna domani per una nuova sfida
-                    </div>
-                    <button class="btn-primary" disabled style="opacity: 0.5;">
+            // Torna alla Home screen
+            navigateTo('home');
+
+            // Aggiorna il box mission in Home
+            const missionBox = document.querySelector('.mission-suggested-main');
+            if (missionBox) {
+                missionBox.innerHTML = `
+                    <div class="badge-main">✅ COMPLETATA</div>
+                    <div class="emoji-large">🎉</div>
+                    <h2 class="mission-title-main">Mission Completata!</h2>
+                    <p class="mission-desc-main">Ottimo lavoro!<br>Torna domani per una nuova sfida</p>
+                    <button class="btn-primary-large" disabled style="opacity: 0.5; cursor: not-allowed;">
                         COMPLETATA PER OGGI
                     </button>
                 `;
