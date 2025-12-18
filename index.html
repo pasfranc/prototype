@@ -1006,9 +1006,9 @@
         /* Missioni Screen */
         .missions-header {
             text-align: center;
-            padding: 20px;
-            font-size: 24px;
-            font-weight: bold;
+            padding: 16px 20px 12px;
+            font-size: 18px;
+            font-weight: 600;
             color: #333;
         }
 
@@ -1242,35 +1242,39 @@
             background: #EFEFEF;
         }
 
-        /* Button Link Style */
+        /* Button Link Style - Secondary Pill */
         .btn-link {
-            background: none;
-            border: none;
+            background: white;
+            border: 1px solid #E0E0E0;
             color: #4CAF50;
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
-            padding: 12px 0;
+            padding: 10px 20px;
             text-align: center;
-            width: 100%;
-            transition: color 0.2s;
+            border-radius: 20px;
+            width: auto;
+            display: inline-block;
+            margin-top: 12px;
+            transition: background 0.2s;
         }
 
         .btn-link:hover {
-            color: #45a049;
+            background: #F5F5F5;
         }
 
         /* SPESA SCREEN STYLES */
         .spesa-header {
             text-align: center;
-            padding: 20px;
-            font-size: 24px;
-            font-weight: bold;
+            padding: 16px 20px 12px;
+            font-size: 18px;
+            font-weight: 600;
             color: #333;
         }
 
         .spesa-content {
             padding: 16px;
+            padding-bottom: 100px; /* Space for tab-bar */
         }
 
         .spesa-intro {
@@ -1345,6 +1349,157 @@
 
         .shopping-cta:hover {
             transform: translateY(-2px);
+        }
+
+        /* Add Product Button */
+        .add-product-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            background: #F5F5F5;
+            border: 2px dashed #4CAF50;
+            border-radius: 8px;
+            margin-top: 8px;
+            cursor: pointer;
+            color: #4CAF50;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .add-product-btn:hover {
+            background: #E8F5E9;
+        }
+
+        /* Add Product Modal */
+        .add-product-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .add-product-modal.active {
+            display: flex;
+        }
+
+        .add-product-content {
+            background: white;
+            max-width: 340px;
+            width: 90%;
+            border-radius: 15px;
+            padding: 24px 20px;
+            animation: modalSlide 0.3s ease-out;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header-custom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title-custom {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .btn-close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .quick-picks-section {
+            margin-bottom: 24px;
+        }
+
+        .section-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .quick-picks-grid-modal {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .quick-pick-btn {
+            background: #F5F5F5;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 12px 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 13px;
+        }
+
+        .quick-pick-btn:hover {
+            background: #E8F5E9;
+            border-color: #4CAF50;
+        }
+
+        .quick-pick-icon {
+            font-size: 24px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .custom-input-section {
+            margin-bottom: 20px;
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 8px;
+        }
+
+        .custom-product-input {
+            flex: 1;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 10px 12px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .custom-product-input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        .btn-add-custom {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .btn-add-custom:hover {
+            background: #45a049;
         }
 
         /* STATS FULL SCREEN STYLES */
@@ -1708,7 +1863,7 @@
             <!-- MISSIONI SCREEN -->
             <div id="missioni-screen" class="screen hidden">
                 <div class="missions-header">
-                    <h2>🎯 MISSIONI</h2>
+                    <h2>🎯 Missioni</h2>
                 </div>
 
                 <!-- Mission suggerita ripetuta con più info -->
@@ -1769,7 +1924,7 @@
             <!-- SPESA SCREEN -->
             <div id="spesa-screen" class="screen hidden">
                 <div class="spesa-header">
-                    <h2>🛒 LISTA DELLA SPESA</h2>
+                    <h2>🛒 Lista della spesa</h2>
                 </div>
 
                 <div class="spesa-content">
@@ -1817,6 +1972,11 @@
                                 <div class="shopping-item-note">Comprata 2 settimane fa</div>
                             </div>
                         </div>
+
+                        <!-- Add Product Button -->
+                        <button class="add-product-btn" onclick="openAddProductModal()">
+                            + Aggiungi prodotto
+                        </button>
                     </div>
 
                     <button class="shopping-cta" onclick="openSpesaSmartMission()">
@@ -2216,6 +2376,74 @@
                 <button class="btn-primary" onclick="closeModal('zeroWasteModal')" style="margin-top: 15px;">
                     CHIUDI
                 </button>
+            </div>
+        </div>
+
+        <!-- ADD PRODUCT MODAL -->
+        <div class="add-product-modal" id="addProductModal">
+            <div class="add-product-content">
+                <div class="modal-header-custom">
+                    <h3 class="modal-title-custom">Aggiungi prodotto</h3>
+                    <button class="btn-close-modal" onclick="closeAddProductModal()">×</button>
+                </div>
+
+                <!-- Quick Picks -->
+                <div class="quick-picks-section">
+                    <div class="section-label">Scelte rapide:</div>
+                    <div class="quick-picks-grid-modal">
+                        <button class="quick-pick-btn" onclick="addQuickPick('🥛', 'Latte')">
+                            <span class="quick-pick-icon">🥛</span>
+                            Latte
+                        </button>
+                        <button class="quick-pick-btn" onclick="addQuickPick('🥚', 'Uova')">
+                            <span class="quick-pick-icon">🥚</span>
+                            Uova
+                        </button>
+                        <button class="quick-pick-btn" onclick="addQuickPick('🍞', 'Pane')">
+                            <span class="quick-pick-icon">🍞</span>
+                            Pane
+                        </button>
+                        <button class="quick-pick-btn" onclick="addQuickPick('🍅', 'Pomodori')">
+                            <span class="quick-pick-icon">🍅</span>
+                            Pomodori
+                        </button>
+                        <button class="quick-pick-btn" onclick="addQuickPick('🧀', 'Formaggio')">
+                            <span class="quick-pick-icon">🧀</span>
+                            Formaggio
+                        </button>
+                        <button class="quick-pick-btn" onclick="addQuickPick('🥕', 'Carote')">
+                            <span class="quick-pick-icon">🥕</span>
+                            Carote
+                        </button>
+                        <button class="quick-pick-btn" onclick="addQuickPick('🍝', 'Pasta')">
+                            <span class="quick-pick-icon">🍝</span>
+                            Pasta
+                        </button>
+                        <button class="quick-pick-btn" onclick="addQuickPick('🍎', 'Mele')">
+                            <span class="quick-pick-icon">🍎</span>
+                            Mele
+                        </button>
+                        <button class="quick-pick-btn" onclick="addQuickPick('🥦', 'Broccoli')">
+                            <span class="quick-pick-icon">🥦</span>
+                            Broccoli
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Custom Input -->
+                <div class="custom-input-section">
+                    <div class="section-label">Oppure scrivi:</div>
+                    <div class="input-wrapper">
+                        <input
+                            type="text"
+                            id="customProductInput"
+                            class="custom-product-input"
+                            placeholder="Es: Yogurt, Biscotti..."
+                            onkeypress="handleCustomInputEnter(event)"
+                        >
+                        <button class="btn-add-custom" onclick="addCustomProduct()">Aggiungi</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -2720,6 +2948,67 @@
         function openSpesaSmartMission() {
             // Show placeholder for Spesa Smart mission
             showPlaceholder('spesa');
+        }
+
+        // NEW: Open Add Product Modal
+        function openAddProductModal() {
+            document.getElementById('addProductModal').classList.add('active');
+            // Clear input
+            document.getElementById('customProductInput').value = '';
+        }
+
+        // NEW: Close Add Product Modal
+        function closeAddProductModal() {
+            document.getElementById('addProductModal').classList.remove('active');
+        }
+
+        // NEW: Add product from quick pick
+        function addQuickPick(icon, name) {
+            addProductToList(icon, name, 'Aggiunto manualmente');
+            closeAddProductModal();
+        }
+
+        // NEW: Add custom product
+        function addCustomProduct() {
+            const input = document.getElementById('customProductInput');
+            const productName = input.value.trim();
+
+            if (productName === '') {
+                alert('Scrivi il nome del prodotto');
+                return;
+            }
+
+            // Auto-detect emoji or use generic one
+            const emoji = '🛒';
+            addProductToList(emoji, productName, 'Aggiunto manualmente');
+            closeAddProductModal();
+        }
+
+        // NEW: Handle Enter key in custom input
+        function handleCustomInputEnter(event) {
+            if (event.key === 'Enter') {
+                addCustomProduct();
+            }
+        }
+
+        // NEW: Add product to shopping list
+        function addProductToList(icon, name, note) {
+            const shoppingList = document.querySelector('.shopping-list');
+            const addButton = document.querySelector('.add-product-btn');
+
+            // Create new product item
+            const newItem = document.createElement('div');
+            newItem.className = 'shopping-item';
+            newItem.innerHTML = `
+                <input type="checkbox" class="shopping-checkbox" onchange="toggleShoppingItem(this)">
+                <div class="shopping-item-content">
+                    <div class="shopping-item-name">${icon} ${name}</div>
+                    <div class="shopping-item-note">${note}</div>
+                </div>
+            `;
+
+            // Insert before the add button
+            shoppingList.insertBefore(newItem, addButton);
         }
 
         // Easter egg - tap logo 3 times
