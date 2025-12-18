@@ -792,6 +792,24 @@
             font-size: 13px;
             font-weight: 500;
             color: #E65100;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-remove-pill {
+            background: none;
+            border: none;
+            color: #E65100;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+            transition: transform 0.2s;
+        }
+
+        .btn-remove-pill:hover {
+            transform: scale(1.2);
         }
 
         /* Section Title */
@@ -1333,6 +1351,22 @@
             color: #999;
         }
 
+        .btn-remove-item {
+            background: none;
+            border: none;
+            color: #999;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 0;
+            margin-left: 8px;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .btn-remove-item:hover {
+            color: #E53935;
+        }
+
         .shopping-cta {
             background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
             color: white;
@@ -1829,9 +1863,18 @@
                             DA USARE PRIMA
                         </div>
                         <div class="products-pills">
-                            <span class="product-pill">🧀 Mozzarella</span>
-                            <span class="product-pill">🍅 Pomodori</span>
-                            <span class="product-pill">🥛 Latte</span>
+                            <span class="product-pill">
+                                🧀 Mozzarella
+                                <button class="btn-remove-pill" onclick="openZeroSprecoForProduct('Mozzarella', '🧀')">×</button>
+                            </span>
+                            <span class="product-pill">
+                                🍅 Pomodori
+                                <button class="btn-remove-pill" onclick="openZeroSprecoForProduct('Pomodori', '🍅')">×</button>
+                            </span>
+                            <span class="product-pill">
+                                🥛 Latte
+                                <button class="btn-remove-pill" onclick="openZeroSprecoForProduct('Latte', '🥛')">×</button>
+                            </span>
                         </div>
                         <button class="btn-secondary" onclick="suggestRecipe()">COSA CUCINO?</button>
                     </div>
@@ -1946,6 +1989,7 @@
                                 <div class="shopping-item-name">🥛 Latte</div>
                                 <div class="shopping-item-note">Finito ieri</div>
                             </div>
+                            <button class="btn-remove-item" onclick="removeFromShoppingList(this)">×</button>
                         </div>
 
                         <div class="shopping-item">
@@ -1954,6 +1998,7 @@
                                 <div class="shopping-item-name">🍅 Pomodori</div>
                                 <div class="shopping-item-note">Usati 3x questa settimana</div>
                             </div>
+                            <button class="btn-remove-item" onclick="removeFromShoppingList(this)">×</button>
                         </div>
 
                         <div class="shopping-item">
@@ -1962,6 +2007,7 @@
                                 <div class="shopping-item-name">🥚 Uova</div>
                                 <div class="shopping-item-note">Ne restano solo 2</div>
                             </div>
+                            <button class="btn-remove-item" onclick="removeFromShoppingList(this)">×</button>
                         </div>
 
                         <div class="shopping-item">
@@ -1970,6 +2016,7 @@
                                 <div class="shopping-item-name">🍝 Pasta</div>
                                 <div class="shopping-item-note">Ingrediente preferito</div>
                             </div>
+                            <button class="btn-remove-item" onclick="removeFromShoppingList(this)">×</button>
                         </div>
 
                         <div class="shopping-item">
@@ -1978,6 +2025,7 @@
                                 <div class="shopping-item-name">🧀 Mozzarella</div>
                                 <div class="shopping-item-note">Comprata 2 settimane fa</div>
                             </div>
+                            <button class="btn-remove-item" onclick="removeFromShoppingList(this)">×</button>
                         </div>
 
                         <!-- Add Product Button -->
@@ -3012,10 +3060,42 @@
                     <div class="shopping-item-name">${icon} ${name}</div>
                     <div class="shopping-item-note">${note}</div>
                 </div>
+                <button class="btn-remove-item" onclick="removeFromShoppingList(this)">×</button>
             `;
 
             // Insert before the add button
             shoppingList.insertBefore(newItem, addButton);
+        }
+
+        // NEW: Remove product from shopping list
+        function removeFromShoppingList(button) {
+            const item = button.closest('.shopping-item');
+            if (item) {
+                // Add fade out animation
+                item.style.transition = 'opacity 0.3s';
+                item.style.opacity = '0';
+
+                setTimeout(() => {
+                    item.remove();
+                }, 300);
+            }
+        }
+
+        // NEW: Open Zero Spreco modal for specific product
+        function openZeroSprecoForProduct(productName, productIcon) {
+            // Update modal content with specific product
+            const modalContent = document.querySelector('#zeroWasteModal .food-list');
+            if (modalContent) {
+                modalContent.innerHTML = `
+                    <div class="food-item">
+                        <span class="food-emoji">${productIcon}</span>
+                        <span>${productName}</span>
+                    </div>
+                `;
+            }
+
+            // Open the modal
+            showModal('zeroWasteModal');
         }
 
         // Easter egg - tap logo 3 times
