@@ -929,6 +929,310 @@
             padding-top: 20px;
             padding-bottom: 100px;
         }
+
+        /* NEW REORGANIZATION STYLES */
+
+        /* Screen management */
+        .screen {
+            display: block;
+        }
+
+        .screen.hidden {
+            display: none !important;
+        }
+
+        /* Home - Mission Suggerita Main */
+        .mission-suggested-main {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFFFFF 100%);
+            border: 2px solid #FFD700;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 16px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
+        }
+
+        .badge-main {
+            font-size: 12px;
+            color: #FFA500;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .emoji-large {
+            font-size: 64px;
+            margin: 16px 0;
+        }
+
+        .mission-title-main {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 12px 0;
+            color: #333;
+        }
+
+        .mission-desc-main {
+            font-size: 16px;
+            color: #666;
+            margin: 12px 0 20px;
+            line-height: 1.4;
+        }
+
+        .btn-primary-large {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: bold;
+            width: 100%;
+            max-width: 300px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-primary-large:hover {
+            background: #45a049;
+        }
+
+        /* Missioni Screen */
+        .missions-header {
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .mission-featured {
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFFFFF 100%);
+            border: 2px solid #FFD700;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 16px;
+        }
+
+        .featured-badge {
+            font-size: 11px;
+            color: #FFA500;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .featured-content {
+            text-align: center;
+        }
+
+        .featured-icon {
+            font-size: 48px;
+            margin: 8px 0;
+        }
+
+        .featured-content h3 {
+            font-size: 20px;
+            margin: 8px 0;
+        }
+
+        .featured-points {
+            font-size: 16px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin: 8px 0;
+        }
+
+        .breakdown {
+            font-size: 13px;
+            color: #666;
+            font-weight: normal;
+        }
+
+        .featured-time {
+            font-size: 14px;
+            color: #666;
+            margin: 8px 0 16px;
+        }
+
+        .section-header {
+            padding: 20px 16px 12px;
+        }
+
+        .section-header h3 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .mission-card-compact {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 1px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 16px;
+            margin: 8px 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .mission-card-compact:hover {
+            border-color: #4CAF50;
+            background: #f8fff8;
+        }
+
+        .compact-icon {
+            font-size: 32px;
+            margin-right: 12px;
+        }
+
+        .compact-info {
+            flex: 1;
+        }
+
+        .compact-info h4 {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 0 4px 0;
+        }
+
+        .compact-meta {
+            font-size: 13px;
+            color: #666;
+            margin: 0;
+        }
+
+        .btn-compact {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* Custom Recipe Screen */
+        .screen-header {
+            padding: 16px;
+            border-bottom: 1px solid #E0E0E0;
+            background: white;
+        }
+
+        .btn-back {
+            background: none;
+            border: none;
+            color: #4CAF50;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 8px 0;
+            font-weight: 600;
+        }
+
+        .screen-header h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        .custom-recipe-content {
+            padding: 16px;
+        }
+
+        .quick-picks {
+            margin-bottom: 24px;
+        }
+
+        .label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .quick-picks-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .quick-picks-grid button {
+            background: #F5F5F5;
+            border: 1px solid #DDD;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.2s;
+        }
+
+        .quick-picks-grid button:hover {
+            background: #EFEFEF;
+        }
+
+        .input-container {
+            margin: 16px 0;
+        }
+
+        #custom-recipe-input {
+            width: 100%;
+            border: 1px solid #DDD;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 16px;
+            font-family: inherit;
+            resize: none;
+        }
+
+        .hint {
+            font-size: 13px;
+            color: #666;
+            margin-top: 8px;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn-skip {
+            background: none;
+            border: 1px solid #DDD;
+            color: #666;
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-skip:hover {
+            background: #F5F5F5;
+        }
+
+        /* Custom option in modal */
+        .custom-option-modal {
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .btn-secondary-custom {
+            background: #F5F5F5;
+            color: #333;
+            border: 1px solid #DDD;
+            border-radius: 12px;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+            transition: background 0.2s;
+        }
+
+        .btn-secondary-custom:hover {
+            background: #EFEFEF;
+        }
     </style>
 </head>
 <body>
@@ -1097,104 +1401,176 @@
                 </div>
             </div>
 
-            <div class="main-content">
-                <!-- 1. MISSION SUGGERITA (Chef di oggi) -->
-                <div class="mission-card mission-suggested" onclick="startChefMission()">
-                    <div class="suggested-badge">🌟 SUGGERITA</div>
-                    <div class="mission-header">
-                        <div class="mission-icon">👨‍🍳</div>
-                        <div class="mission-title">Chef di oggi</div>
+            <!-- HOME SCREEN -->
+            <div id="home-screen" class="screen">
+                <div class="main-content">
+                    <!-- MISSION SUGGERITA UNICA -->
+                    <div class="mission-suggested-main">
+                        <div class="badge-main">🌟 MISSIONE DI OGGI</div>
+                        <div class="emoji-large">👨‍🍳</div>
+                        <h2 class="mission-title-main">Chef di oggi</h2>
+                        <p class="mission-desc-main">Hai 5 ingredienti!<br>Ti suggeriamo 3 ricette</p>
+                        <button class="btn-primary-large" onclick="startChefMission()">
+                            INIZIA → +40pt
+                        </button>
                     </div>
-                    <div class="mission-description">
-                        Hai 5 ingredienti pronti! <span class="mission-reward-inline">+30pt</span>
-                    </div>
-                    <button class="btn-primary" onclick="event.stopPropagation(); startMission()">INIZIA MISSION</button>
-                </div>
 
-                <!-- 2. DA USARE PRIMA -->
-                <div class="alert-card">
-                    <div class="alert-title">
-                        <span class="alert-icon">⚠️</span>
-                        DA USARE PRIMA
+                    <!-- DA USARE PRIMA -->
+                    <div class="alert-card">
+                        <div class="alert-title">
+                            <span class="alert-icon">⚠️</span>
+                            DA USARE PRIMA
+                        </div>
+                        <div class="products-pills">
+                            <span class="product-pill">🧀 Mozzarella</span>
+                            <span class="product-pill">🍅 Pomodori</span>
+                            <span class="product-pill">🥛 Latte</span>
+                        </div>
+                        <button class="btn-secondary" onclick="suggestRecipe()">COSA CUCINO?</button>
                     </div>
-                    <div class="products-pills">
-                        <span class="product-pill">🧀 Mozzarella</span>
-                        <span class="product-pill">🍅 Pomodori</span>
-                        <span class="product-pill">🥛 Latte</span>
-                    </div>
-                    <button class="btn-secondary" onclick="suggestRecipe()">COSA CUCINO?</button>
-                </div>
 
-                <!-- 3. ALTRE MISSIONI -->
-                <div class="other-missions">
-                    <h3 class="section-title">⚡ ALTRE MISSIONI</h3>
-                    <div class="mission-card-small" onclick="openPlaceholder('scatta')">
-                        <span class="mission-emoji">📸</span>
-                        <span class="mission-name">Scatta & Scopri</span>
-                        <span class="mission-points">+20pt</span>
-                    </div>
-                    <div class="mission-card-small" onclick="openPlaceholder('spesa')">
-                        <span class="mission-emoji">🧾</span>
-                        <span class="mission-name">Spesa Smart</span>
-                        <span class="mission-points">+25pt</span>
-                    </div>
-                    <div class="mission-card-small" onclick="openPlaceholder('zero')">
-                        <span class="mission-emoji">⚠️</span>
-                        <span class="mission-name">Zero Spreco</span>
-                        <span class="mission-points">+10pt</span>
-                    </div>
-                    <div class="mission-card-small" onclick="openPlaceholder('frigo')">
-                        <span class="mission-emoji">✅</span>
-                        <span class="mission-name">Frigo Check</span>
-                        <span class="mission-points">+5pt</span>
-                    </div>
-                </div>
-
-                <!-- 4. STATS COMPLETE -->
-                <div class="stats-card">
-                    <div class="stats-title">
-                        <span style="margin-right: 8px;">💚</span>
-                        I TUOI NUMERI
-                    </div>
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-value">🌍 0.2kg</div>
-                            <div class="stat-label">CO2 salvata</div>
+                    <!-- STATS COMPLETE (footer) -->
+                    <div class="stats-card">
+                        <div class="stats-title">
+                            <span style="margin-right: 8px;">💚</span>
+                            I TUOI NUMERI
                         </div>
-                        <div class="stat-item">
-                            <div class="stat-value">💰 €5</div>
-                            <div class="stat-label">Risparmiati</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">🍽️ 0</div>
-                            <div class="stat-label">Ricette</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value">⚡ 1</div>
-                            <div class="stat-label">Giorni streak</div>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-value">🌍 0.2kg</div>
+                                <div class="stat-label">CO2 salvata</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">💰 €5</div>
+                                <div class="stat-label">Risparmiati</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">🍽️ 0</div>
+                                <div class="stat-label">Ricette</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">⚡ 1</div>
+                                <div class="stat-label">Giorni streak</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- MISSIONI SCREEN -->
+            <div id="missioni-screen" class="screen hidden">
+                <div class="missions-header">
+                    <h2>🎯 MISSIONI</h2>
+                </div>
+
+                <!-- Mission suggerita ripetuta con più info -->
+                <div class="mission-featured">
+                    <div class="featured-badge">🌟 SUGGERITA OGGI</div>
+                    <div class="featured-content">
+                        <div class="featured-icon">👨‍🍳</div>
+                        <h3>Chef di oggi</h3>
+                        <p class="featured-points">+40pt <span class="breakdown">(30 base + 10 bonus)</span></p>
+                        <p class="featured-time">⏱️ ~5 minuti</p>
+                    </div>
+                    <button class="btn-primary" onclick="startChefMission()">INIZIA →</button>
+                </div>
+
+                <!-- Separatore -->
+                <div class="section-header">
+                    <h3>📋 TUTTE LE MISSIONI</h3>
+                </div>
+
+                <!-- Mission compatte -->
+                <div class="mission-card-compact" onclick="showPlaceholder('scatta')">
+                    <div class="compact-icon">📸</div>
+                    <div class="compact-info">
+                        <h4>Scatta & Scopri</h4>
+                        <p class="compact-meta">+20pt • ⏱️ 1 min</p>
+                    </div>
+                    <button class="btn-compact">VAI →</button>
+                </div>
+
+                <div class="mission-card-compact" onclick="showPlaceholder('spesa')">
+                    <div class="compact-icon">🧾</div>
+                    <div class="compact-info">
+                        <h4>Spesa Smart</h4>
+                        <p class="compact-meta">+25pt • ⏱️ 2 min</p>
+                    </div>
+                    <button class="btn-compact">VAI →</button>
+                </div>
+
+                <div class="mission-card-compact" onclick="showPlaceholder('zero')">
+                    <div class="compact-icon">⚠️</div>
+                    <div class="compact-info">
+                        <h4>Zero Spreco</h4>
+                        <p class="compact-meta">+10pt • ⏱️ 30 sec</p>
+                    </div>
+                    <button class="btn-compact">VAI →</button>
+                </div>
+
+                <div class="mission-card-compact" onclick="showPlaceholder('frigo')">
+                    <div class="compact-icon">✅</div>
+                    <div class="compact-info">
+                        <h4>Frigo Check</h4>
+                        <p class="compact-meta">+5pt • ⏱️ 20 sec</p>
+                    </div>
+                    <button class="btn-compact">VAI →</button>
+                </div>
+            </div>
+
             <!-- Tab Bar -->
             <div class="tab-bar">
-                <a href="#" class="tab active">
+                <a href="#" class="tab active" data-tab="home" onclick="event.preventDefault(); navigateTo('home')">
                     <div class="tab-icon">🏠</div>
                     Home
                 </a>
-                <a href="#" class="tab" onclick="alert('Missioni extra coming soon! 🎯')">
+                <a href="#" class="tab" data-tab="missioni" onclick="event.preventDefault(); navigateTo('missioni')">
                     <div class="tab-icon">🎯</div>
                     Missioni
                 </a>
-                <a href="#" class="tab" onclick="alert('Stats dettagliate coming soon! 📊')">
+                <a href="#" class="tab" onclick="event.preventDefault(); alert('Stats dettagliate coming soon! 📊')">
                     <div class="tab-icon">📊</div>
                     Stats
                 </a>
-                <a href="#" class="tab" onclick="alert('Profilo coming soon! 👤')">
+                <a href="#" class="tab" onclick="event.preventDefault(); alert('Profilo coming soon! 👤')">
                     <div class="tab-icon">👤</div>
                     Profilo
                 </a>
+            </div>
+        </div>
+
+        <!-- CUSTOM RECIPE SCREEN (nuovo) -->
+        <div id="custom-recipe-screen" class="screen hidden">
+            <div class="screen-header">
+                <button class="btn-back" onclick="goBackToChef()">← Indietro</button>
+                <h2>✏️ Cosa hai cucinato?</h2>
+            </div>
+
+            <div class="custom-recipe-content">
+                <!-- Quick picks -->
+                <div class="quick-picks">
+                    <p class="label">Ricette comuni:</p>
+                    <div class="quick-picks-grid">
+                        <button onclick="selectQuickRecipe('Risotto')">🍚 Risotto</button>
+                        <button onclick="selectQuickRecipe('Carbonara')">🥓 Carbonara</button>
+                        <button onclick="selectQuickRecipe('Pizza')">🍕 Pizza</button>
+                        <button onclick="selectQuickRecipe('Aglio e olio')">🍝 Aglio e olio</button>
+                    </div>
+                </div>
+
+                <p class="divider">oppure scrivi</p>
+
+                <!-- Free input -->
+                <div class="input-container">
+                    <textarea id="custom-recipe-input" placeholder="Es: Risotto allo zafferano" maxlength="100" rows="3"></textarea>
+                    <p class="hint">💡 Scrivi cosa hai cucinato. Ci occupiamo noi del resto.</p>
+                </div>
+
+                <!-- Actions -->
+                <div class="action-buttons">
+                    <button class="btn-primary" onclick="submitCustomRecipe()">FATTO → +25pt</button>
+                    <button class="btn-skip" onclick="skipCustomRecipe()">Salta (ho mangiato fuori)</button>
+                </div>
             </div>
         </div>
 
@@ -1246,6 +1622,14 @@
                 <button class="btn-primary" onclick="confirmRecipe()" id="confirmRecipeBtn" style="opacity: 0.5;" disabled>
                     CUCINO QUESTA! 🍴
                 </button>
+
+                <!-- NUOVO: Opzione custom -->
+                <div class="custom-option-modal">
+                    <p class="divider">oppure</p>
+                    <button class="btn-secondary-custom" onclick="showCustomRecipe()">
+                        ✏️ Ho cucinato altro
+                    </button>
+                </div>
 
                 <button class="btn-secondary" onclick="closeModal('recipeSuggestionModal')" style="margin-top: 10px; width: 100%;">
                     CHIUDI
@@ -1645,6 +2029,110 @@
 
             // Mostra main app
             document.getElementById('mainApp').style.display = 'block';
+        }
+
+        // NEW: Navigation between screens
+        function navigateTo(screenName) {
+            // Hide all screens
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.add('hidden');
+            });
+
+            // Show selected screen
+            const targetScreen = document.getElementById(screenName + '-screen');
+            if (targetScreen) {
+                targetScreen.classList.remove('hidden');
+            }
+
+            // Update tab bar active state
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            const activeTab = document.querySelector(`[data-tab="${screenName}"]`);
+            if (activeTab) {
+                activeTab.classList.add('active');
+            }
+        }
+
+        // NEW: Show custom recipe screen
+        function showCustomRecipe() {
+            // Close modal if open
+            closeModal('recipeSuggestionModal');
+
+            // Hide all screens
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.add('hidden');
+            });
+
+            // Show custom recipe screen
+            document.getElementById('custom-recipe-screen').classList.remove('hidden');
+        }
+
+        // NEW: Go back to chef mission (from custom recipe)
+        function goBackToChef() {
+            document.getElementById('custom-recipe-screen').classList.add('hidden');
+            // Reopen recipe modal
+            showModal('recipeSuggestionModal');
+        }
+
+        // NEW: Quick pick selection
+        function selectQuickRecipe(recipeName) {
+            console.log('Quick pick:', recipeName);
+            completeCustomRecipe(recipeName);
+        }
+
+        // NEW: Submit custom input
+        function submitCustomRecipe() {
+            const input = document.getElementById('custom-recipe-input');
+            const recipeText = input.value.trim();
+
+            if (recipeText === '') {
+                alert('Scrivi cosa hai cucinato!');
+                return;
+            }
+
+            console.log('Custom recipe:', recipeText);
+            completeCustomRecipe(recipeText);
+        }
+
+        // NEW: Skip custom recipe (ate out)
+        function skipCustomRecipe() {
+            console.log('User skipped custom recipe');
+
+            // Still complete mission (no penalty)
+            document.getElementById('custom-recipe-screen').classList.add('hidden');
+            document.getElementById('pointsEarned').textContent = '+25 punti';
+            showModal('missionCompleteModal');
+
+            appState.points += 25;
+            updateUI();
+        }
+
+        // NEW: Complete custom recipe flow
+        function completeCustomRecipe(recipeText) {
+            console.log('Completing custom recipe:', recipeText);
+
+            // Hide custom screen
+            document.getElementById('custom-recipe-screen').classList.add('hidden');
+
+            // Show reward
+            document.getElementById('pointsEarned').textContent = '+25 punti';
+            showModal('missionCompleteModal');
+
+            // Update points
+            appState.points += 25;
+            updateUI();
+
+            // Clear input for next time
+            document.getElementById('custom-recipe-input').value = '';
+        }
+
+        // NEW: Show placeholder for non-implemented missions
+        function showPlaceholder(missionType) {
+            const placeholderEl = document.getElementById(`placeholder-${missionType}`);
+            if (placeholderEl) {
+                placeholderEl.classList.remove('hidden');
+            }
         }
 
         // Easter egg - tap logo 3 times
