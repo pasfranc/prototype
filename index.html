@@ -1241,6 +1241,243 @@
         .btn-secondary-custom:hover {
             background: #EFEFEF;
         }
+
+        /* Button Link Style */
+        .btn-link {
+            background: none;
+            border: none;
+            color: #4CAF50;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 12px 0;
+            text-align: center;
+            width: 100%;
+            transition: color 0.2s;
+        }
+
+        .btn-link:hover {
+            color: #45a049;
+        }
+
+        /* SPESA SCREEN STYLES */
+        .spesa-header {
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .spesa-content {
+            padding: 16px;
+        }
+
+        .spesa-intro {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .shopping-list {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+
+        .shopping-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px 0;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .shopping-item:last-child {
+            border-bottom: none;
+        }
+
+        .shopping-checkbox {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: #4CAF50;
+        }
+
+        .shopping-item-content {
+            flex: 1;
+        }
+
+        .shopping-item-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .shopping-item-note {
+            font-size: 13px;
+            color: #999;
+            font-style: italic;
+        }
+
+        .shopping-item.checked .shopping-item-name {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .shopping-cta {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+
+        .shopping-cta:hover {
+            transform: translateY(-2px);
+        }
+
+        /* STATS FULL SCREEN STYLES */
+        .stats-full-screen {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 375px;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 300;
+            display: none;
+            flex-direction: column;
+        }
+
+        .stats-full-screen.active {
+            display: flex;
+        }
+
+        .stats-full-header {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .stats-full-header .btn-back {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .stats-full-header h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+            flex: 1;
+        }
+
+        .stats-tabs {
+            display: flex;
+            background: #F5F5F5;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        .stats-tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            background: none;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.2s;
+        }
+
+        .stats-tab.active {
+            color: #4CAF50;
+        }
+
+        .stats-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #4CAF50;
+        }
+
+        .stats-full-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .stats-tab-content {
+            display: none;
+        }
+
+        .stats-tab-content.active {
+            display: block;
+        }
+
+        .stat-card-full {
+            background: white;
+            border: 1px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .stat-card-full h3 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stat-detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        .stat-detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .stat-detail-label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .stat-detail-value {
+            font-size: 16px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
     </style>
 </head>
 <body>
@@ -1441,7 +1678,7 @@
                     <div class="stats-card">
                         <div class="stats-title">
                             <span style="margin-right: 8px;">💚</span>
-                            I TUOI NUMERI
+                            I TUOI NUMERI - OGGI
                         </div>
                         <div class="stats-grid">
                             <div class="stat-item">
@@ -1461,6 +1698,9 @@
                                 <div class="stat-label">Giorni streak</div>
                             </div>
                         </div>
+                        <button class="btn-link" onclick="showFullStats()">
+                            Vedi dettagli →
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1526,6 +1766,65 @@
                 </div>
             </div>
 
+            <!-- SPESA SCREEN -->
+            <div id="spesa-screen" class="screen hidden">
+                <div class="spesa-header">
+                    <h2>🛒 LISTA DELLA SPESA</h2>
+                </div>
+
+                <div class="spesa-content">
+                    <p class="spesa-intro">
+                        💡 Ti suggeriamo cosa comprare in base a ciò che usi più spesso e cosa sta per finire.
+                    </p>
+
+                    <div class="shopping-list">
+                        <div class="shopping-item">
+                            <input type="checkbox" class="shopping-checkbox" onchange="toggleShoppingItem(this)">
+                            <div class="shopping-item-content">
+                                <div class="shopping-item-name">🥛 Latte</div>
+                                <div class="shopping-item-note">Finito ieri</div>
+                            </div>
+                        </div>
+
+                        <div class="shopping-item">
+                            <input type="checkbox" class="shopping-checkbox" onchange="toggleShoppingItem(this)">
+                            <div class="shopping-item-content">
+                                <div class="shopping-item-name">🍅 Pomodori</div>
+                                <div class="shopping-item-note">Usati 3x questa settimana</div>
+                            </div>
+                        </div>
+
+                        <div class="shopping-item">
+                            <input type="checkbox" class="shopping-checkbox" onchange="toggleShoppingItem(this)">
+                            <div class="shopping-item-content">
+                                <div class="shopping-item-name">🥚 Uova</div>
+                                <div class="shopping-item-note">Ne restano solo 2</div>
+                            </div>
+                        </div>
+
+                        <div class="shopping-item">
+                            <input type="checkbox" class="shopping-checkbox" onchange="toggleShoppingItem(this)">
+                            <div class="shopping-item-content">
+                                <div class="shopping-item-name">🍝 Pasta</div>
+                                <div class="shopping-item-note">Ingrediente preferito</div>
+                            </div>
+                        </div>
+
+                        <div class="shopping-item">
+                            <input type="checkbox" class="shopping-checkbox" onchange="toggleShoppingItem(this)">
+                            <div class="shopping-item-content">
+                                <div class="shopping-item-name">🧀 Mozzarella</div>
+                                <div class="shopping-item-note">Comprata 2 settimane fa</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="shopping-cta" onclick="openSpesaSmartMission()">
+                        HAI FATTO LA SPESA? 🧾
+                    </button>
+                </div>
+            </div>
+
             <!-- Tab Bar -->
             <div class="tab-bar">
                 <a href="#" class="tab active" data-tab="home" onclick="event.preventDefault(); navigateTo('home')">
@@ -1536,11 +1835,11 @@
                     <div class="tab-icon">🎯</div>
                     Missioni
                 </a>
-                <a href="#" class="tab" onclick="event.preventDefault(); alert('Stats dettagliate coming soon! 📊')">
-                    <div class="tab-icon">📊</div>
-                    Stats
+                <a href="#" class="tab" data-tab="spesa" onclick="event.preventDefault(); navigateTo('spesa')">
+                    <div class="tab-icon">🛒</div>
+                    Spesa
                 </a>
-                <a href="#" class="tab" onclick="event.preventDefault(); alert('Profilo coming soon! 👤')">
+                <a href="#" class="tab" data-tab="profilo" onclick="event.preventDefault(); alert('Profilo coming soon! 👤')">
                     <div class="tab-icon">👤</div>
                     Profilo
                 </a>
@@ -1578,6 +1877,231 @@
                 <div class="action-buttons">
                     <button class="btn-primary" onclick="submitCustomRecipe()">FATTO → +25pt</button>
                     <button class="btn-skip" onclick="skipCustomRecipe()">Salta (ho mangiato fuori)</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- STATS FULL SCREEN -->
+        <div id="stats-full-screen" class="stats-full-screen">
+            <div class="stats-full-header">
+                <button class="btn-back" onclick="closeFullStats()">← Indietro</button>
+                <h2>📊 Le tue statistiche</h2>
+            </div>
+
+            <div class="stats-tabs">
+                <button class="stats-tab active" data-period="oggi" onclick="switchStatsPeriod('oggi')">Oggi</button>
+                <button class="stats-tab" data-period="settimana" onclick="switchStatsPeriod('settimana')">Settimana</button>
+                <button class="stats-tab" data-period="mese" onclick="switchStatsPeriod('mese')">Mese</button>
+            </div>
+
+            <div class="stats-full-content">
+                <!-- TAB OGGI -->
+                <div id="stats-oggi" class="stats-tab-content active">
+                    <div class="stat-card-full">
+                        <h3>💚 Attività</h3>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Missioni completate</span>
+                            <span class="stat-detail-value">1</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Ricette cucinate</span>
+                            <span class="stat-detail-value">0</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Prodotti tracciati</span>
+                            <span class="stat-detail-value">5</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card-full">
+                        <h3>🌍 Impatto</h3>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">CO2 salvata</span>
+                            <span class="stat-detail-value">0.2 kg</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Cibo non sprecato</span>
+                            <span class="stat-detail-value">0.5 kg</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Equivalente in alberi</span>
+                            <span class="stat-detail-value">0.01 🌳</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card-full">
+                        <h3>💰 Risparmio</h3>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Denaro risparmiato</span>
+                            <span class="stat-detail-value">€5</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Prodotti usati</span>
+                            <span class="stat-detail-value">3</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Valore salvato</span>
+                            <span class="stat-detail-value">€8</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card-full">
+                        <h3>⭐ Punti & Livello</h3>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Punti guadagnati oggi</span>
+                            <span class="stat-detail-value">+25 pt</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Totale punti</span>
+                            <span class="stat-detail-value">25 pt</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Livello attuale</span>
+                            <span class="stat-detail-value">Novizio</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Giorni di streak</span>
+                            <span class="stat-detail-value">🔥 1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB SETTIMANA -->
+                <div id="stats-settimana" class="stats-tab-content">
+                    <div class="stat-card-full">
+                        <h3>💚 Attività</h3>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Missioni completate</span>
+                            <span class="stat-detail-value">7</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Ricette cucinate</span>
+                            <span class="stat-detail-value">5</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Prodotti tracciati</span>
+                            <span class="stat-detail-value">28</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card-full">
+                        <h3>🌍 Impatto</h3>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">CO2 salvata</span>
+                            <span class="stat-detail-value">1.4 kg</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Cibo non sprecato</span>
+                            <span class="stat-detail-value">3.5 kg</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Equivalente in alberi</span>
+                            <span class="stat-detail-value">0.07 🌳</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card-full">
+                        <h3>💰 Risparmio</h3>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Denaro risparmiato</span>
+                            <span class="stat-detail-value">€35</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Prodotti usati</span>
+                            <span class="stat-detail-value">21</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Valore salvato</span>
+                            <span class="stat-detail-value">€56</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card-full">
+                        <h3>⭐ Punti & Livello</h3>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Punti guadagnati</span>
+                            <span class="stat-detail-value">+175 pt</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Media giornaliera</span>
+                            <span class="stat-detail-value">25 pt/giorno</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Giorni di streak</span>
+                            <span class="stat-detail-value">🔥 7</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB MESE -->
+                <div id="stats-mese" class="stats-tab-content">
+                    <div class="stat-card-full">
+                        <h3>💚 Attività</h3>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Missioni completate</span>
+                            <span class="stat-detail-value">30</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Ricette cucinate</span>
+                            <span class="stat-detail-value">22</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Prodotti tracciati</span>
+                            <span class="stat-detail-value">120</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card-full">
+                        <h3>🌍 Impatto</h3>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">CO2 salvata</span>
+                            <span class="stat-detail-value">6.0 kg</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Cibo non sprecato</span>
+                            <span class="stat-detail-value">15 kg</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Equivalente in alberi</span>
+                            <span class="stat-detail-value">0.3 🌳</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card-full">
+                        <h3>💰 Risparmio</h3>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Denaro risparmiato</span>
+                            <span class="stat-detail-value">€150</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Prodotti usati</span>
+                            <span class="stat-detail-value">90</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Valore salvato</span>
+                            <span class="stat-detail-value">€240</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card-full">
+                        <h3>⭐ Punti & Livello</h3>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Punti guadagnati</span>
+                            <span class="stat-detail-value">+750 pt</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Media giornaliera</span>
+                            <span class="stat-detail-value">25 pt/giorno</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Streak più lungo</span>
+                            <span class="stat-detail-value">🔥 30</span>
+                        </div>
+                        <div class="stat-detail-row">
+                            <span class="stat-detail-label">Livello raggiunto</span>
+                            <span class="stat-detail-value">Esperto</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2145,6 +2669,57 @@
             if (placeholderEl) {
                 placeholderEl.classList.remove('hidden');
             }
+        }
+
+        // NEW: Show full stats screen
+        function showFullStats() {
+            document.getElementById('stats-full-screen').classList.add('active');
+        }
+
+        // NEW: Close full stats screen
+        function closeFullStats() {
+            document.getElementById('stats-full-screen').classList.remove('active');
+        }
+
+        // NEW: Switch stats period tabs
+        function switchStatsPeriod(period) {
+            // Remove active from all tabs
+            document.querySelectorAll('.stats-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Add active to selected tab
+            const selectedTab = document.querySelector(`[data-period="${period}"]`);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+
+            // Hide all tab contents
+            document.querySelectorAll('.stats-tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Show selected tab content
+            const selectedContent = document.getElementById(`stats-${period}`);
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+            }
+        }
+
+        // NEW: Toggle shopping item checkbox
+        function toggleShoppingItem(checkbox) {
+            const item = checkbox.closest('.shopping-item');
+            if (checkbox.checked) {
+                item.classList.add('checked');
+            } else {
+                item.classList.remove('checked');
+            }
+        }
+
+        // NEW: Open Spesa Smart mission
+        function openSpesaSmartMission() {
+            // Show placeholder for Spesa Smart mission
+            showPlaceholder('spesa');
         }
 
         // Easter egg - tap logo 3 times
