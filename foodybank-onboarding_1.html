@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodybank - Onboarding</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 375px;
+            margin: 0 auto;
+            background: #fff;
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        /* Onboarding Screens */
+        .onboarding-screen {
+            display: none;
+            min-height: 100vh;
+            padding: 40px 30px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .onboarding-screen.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .onboarding-icon {
+            font-size: 80px;
+            margin-bottom: 30px;
+            animation: bounce 1s ease-in-out;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .onboarding-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .onboarding-subtitle {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            max-width: 300px;
+            font-size: 16px;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 12px 30px;
+            border-radius: 20px;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.2s;
+            color: #666;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .btn-secondary:hover {
+            background: #e9ecef;
+        }
+
+        /* Choice Options Screen */
+        .choice-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .choice-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .choice-card:hover {
+            border-color: #4CAF50;
+            background: #f8fff8;
+            transform: translateX(5px);
+        }
+
+        .choice-icon {
+            font-size: 32px;
+        }
+
+        .choice-text {
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .choice-hint {
+            font-size: 12px;
+            color: #999;
+            margin-top: 20px;
+        }
+
+        /* Camera Screen */
+        .camera-container {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            background: #f0f0f0;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            border: 3px dashed #4CAF50;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .camera-placeholder {
+            text-align: center;
+            color: #999;
+        }
+
+        .camera-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .photo-preview {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .capture-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: white;
+            border: 5px solid #4CAF50;
+            cursor: pointer;
+            transition: transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .capture-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Processing Animation */
+        .processing {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #4CAF50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Products List */
+        .products-list {
+            width: 100%;
+            max-width: 300px;
+            background: #f8fff8;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .product-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 16px;
+        }
+
+        .product-item:last-child {
+            border-bottom: none;
+        }
+
+        .product-emoji {
+            font-size: 24px;
+        }
+
+        .product-count {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .points-badge {
+            background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+            display: inline-block;
+            animation: pulse 0.5s ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Benefits List */
+        .benefits-list {
+            text-align: left;
+            margin: 20px 0;
+            max-width: 300px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .benefit-icon {
+            font-size: 20px;
+        }
+
+        /* Auth Buttons */
+        .auth-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .auth-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+            border: 2px solid #e0e0e0;
+            background: white;
+        }
+
+        .auth-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .auth-btn-email {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            border: none;
+        }
+
+        .auth-btn-apple {
+            background: #000;
+            color: white;
+            border: none;
+        }
+
+        .skip-link {
+            margin-top: 20px;
+            color: #999;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .skip-link:hover {
+            color: #666;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            max-width: 300px;
+        }
+
+        .warning-text {
+            color: #856404;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Main App (from previous prototype) */
+        .main-app {
+            display: none;
+        }
+
+        .main-app.active {
+            display: block;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+        }
+
+        .streak-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 15px;
+            border-radius: 25px;
+            margin: 10px 0;
+            display: inline-block;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .points-level {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .points {
+            font-size: 14px;
+        }
+
+        .level {
+            background: rgba(255,255,255,0.3);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+
+        .main-content {
+            padding: 20px;
+            padding-bottom: 100px;
+        }
+
+        .mission-card {
+            background: #fff;
+            border: 2px solid #4CAF50;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.1);
+        }
+
+        .mission-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .mission-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .mission-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .mission-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .alert-card {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .alert-title {
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .alert-icon {
+            margin-right: 8px;
+        }
+
+        .food-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .food-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+        }
+
+        .food-emoji {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .stats-card {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stats-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .tab-bar {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 375px;
+            width: 100%;
+            background: white;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: around;
+            padding: 10px 0;
+            z-index: 100;
+        }
+
+        .tab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 8px;
+            text-decoration: none;
+            color: #999;
+            font-size: 12px;
+            flex: 1;
+            transition: color 0.2s;
+        }
+
+        .tab.active {
+            color: #4CAF50;
+        }
+
+        .tab-icon {
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- SCREEN 1: Hook Emotivo -->
+        <div class="onboarding-screen active" id="screen1">
+            <div class="onboarding-icon">🗑️</div>
+            <h1 class="onboarding-title">Quante cose butti perché te ne dimentichi?</h1>
+            <p class="onboarding-subtitle">Foodybank ti aiuta a usare quello che hai prima che sia troppo tardi</p>
+            <button class="btn-primary" onclick="nextScreen(2)">Continua →</button>
+        </div>
+
+        <!-- SCREEN 2: Rimozione Paura -->
+        <div class="onboarding-screen" id="screen2">
+            <div class="onboarding-icon">✋</div>
+            <h1 class="onboarding-title">Non devi inserire tutto</h1>
+            <p class="onboarding-subtitle">Niente liste infinite. Niente lavoro noioso. Puoi iniziare con una sola azione.</p>
+            <button class="btn-primary" onclick="nextScreen(3)">Ok, fammi vedere →</button>
+        </div>
+
+        <!-- SCREEN 3: Scelta Pigra -->
+        <div class="onboarding-screen" id="screen3">
+            <h1 class="onboarding-title">Come vuoi iniziare?</h1>
+            <div class="choice-options">
+                <div class="choice-card" onclick="selectChoice('photo')">
+                    <div class="choice-icon">📸</div>
+                    <div class="choice-text">Scatta una foto al frigo</div>
+                </div>
+                <div class="choice-card" onclick="selectChoice('receipt')">
+                    <div class="choice-icon">🧾</div>
+                    <div class="choice-text">Carica uno scontrino</div>
+                </div>
+                <div class="choice-card" onclick="selectChoice('voice')">
+                    <div class="choice-icon">🎙️</div>
+                    <div class="choice-text">Dimmi cosa hai comprato</div>
+                </div>
+            </div>
+            <p class="choice-hint">⚡ Bastano 10 secondi</p>
+        </div>
+
+        <!-- SCREEN 4: Camera / Action -->
+        <div class="onboarding-screen" id="screen4">
+            <h1 class="onboarding-title">Scatta una foto</h1>
+            <div class="camera-container" id="cameraView">
+                <div class="camera-placeholder">
+                    <div class="camera-icon">📷</div>
+                    <div>Inquadra il tuo frigo</div>
+                </div>
+            </div>
+            <div class="capture-btn" onclick="capturePhoto()">📸</div>
+        </div>
+
+        <!-- SCREEN 4b: Processing -->
+        <div class="onboarding-screen" id="screen4b">
+            <div class="processing">
+                <div class="spinner"></div>
+                <p class="onboarding-subtitle">🔄 Riconosciamo i prodotti...</p>
+            </div>
+        </div>
+
+        <!-- SCREEN 5: Risultato + Prodotti -->
+        <div class="onboarding-screen" id="screen5">
+            <div class="onboarding-icon">✅</div>
+            <h1 class="onboarding-title">Riconoscimento completato!</h1>
+            <p class="onboarding-subtitle">Ecco cosa hai:</p>
+            
+            <div class="products-list">
+                <div class="product-item">
+                    <span class="product-emoji">🥛</span>
+                    <span>Latte</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-emoji">🥚</span>
+                    <span>Uova</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-emoji">🍅</span>
+                    <span>Pomodori</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-emoji">🧀</span>
+                    <span>Mozzarella</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-emoji">🍝</span>
+                    <span>Pasta</span>
+                </div>
+            </div>
+
+            <div class="product-count">5 prodotti riconosciuti</div>
+            
+            <div class="points-badge">+25 punti! 🎉</div>
+            
+            <button class="btn-primary" onclick="nextScreen(6)">Salva e continua →</button>
+        </div>
+
+        <!-- SCREEN 6: Registration -->
+        <div class="onboarding-screen" id="screen6">
+            <div class="onboarding-icon">🎉</div>
+            <h1 class="onboarding-title">Ottimo inizio!</h1>
+            
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <span class="benefit-icon">•</span>
+                    <span>25 punti</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">•</span>
+                    <span>5 prodotti tracciati</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">•</span>
+                    <span>La tua prima mission ti aspetta</span>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <p class="warning-text">💾 Devi creare un account per continuare</p>
+            </div>
+
+            <div class="auth-buttons">
+                <div class="auth-btn auth-btn-email" onclick="createAccount('email')">
+                    📧 Continua con Email
+                </div>
+                <div class="auth-btn auth-btn-apple" onclick="createAccount('apple')">
+                    🍎 Continua con Apple
+                </div>
+                <div class="auth-btn" onclick="createAccount('google')">
+                    <span style="color: #4285F4;">G</span> Continua con Google
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SCREEN 7: Notifiche -->
+        <div class="onboarding-screen" id="screen7">
+            <div class="onboarding-icon">🔥</div>
+            <h1 class="onboarding-title">Un'ultima cosa importante</h1>
+            <p class="onboarding-subtitle" style="font-weight: 600;">Il segreto è lo STREAK</p>
+            
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <span class="benefit-icon">📲</span>
+                    <span>Una notifica al giorno ti ricorda la mission (30 secondi)</span>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <p class="warning-text">Senza notifiche = Dimentichi = Perdi lo streak</p>
+            </div>
+
+            <button class="btn-primary" onclick="enableNotifications()">🔔 Attiva notifiche</button>
+        </div>
+
+        <!-- MAIN APP (from previous prototype) -->
+        <div class="main-app" id="mainApp">
+            <div class="header">
+                <h1>🍽️ Foodybank</h1>
+                <div class="streak-badge" id="streakBadge">
+                    🔥 Streak: <span id="streakCount">1</span> giorni
+                </div>
+                <div class="points-level">
+                    <div class="points">⭐ <span id="pointsCount">25</span> punti</div>
+                    <div class="level" id="userLevel">Novizio</div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <!-- Mission del Giorno -->
+                <div class="mission-card" id="dailyMission">
+                    <div class="mission-header">
+                        <div class="mission-icon">🎯</div>
+                        <div class="mission-title">MISSION DI OGGI</div>
+                    </div>
+                    <div id="missionContent">
+                        <div class="mission-description">
+                            👨‍🍳 <strong>Chef di oggi</strong><br>
+                            Cosa cucini stasera? Ti suggeriamo ricette con quello che hai
+                        </div>
+                        <button class="btn-primary" onclick="alert('Mission feature coming soon! 🚀')">INIZIA MISSION</button>
+                    </div>
+                </div>
+
+                <!-- Da Usare Prima -->
+                <div class="alert-card">
+                    <div class="alert-title">
+                        <span class="alert-icon">⚠️</span>
+                        DA USARE PRIMA
+                    </div>
+                    <div class="food-list">
+                        <div class="food-item">
+                            <span class="food-emoji">🧀</span>
+                            <span>Mozzarella</span>
+                        </div>
+                        <div class="food-item">
+                            <span class="food-emoji">🍅</span>
+                            <span>Pomodori</span>
+                        </div>
+                        <div class="food-item">
+                            <span class="food-emoji">🥛</span>
+                            <span>Latte</span>
+                        </div>
+                    </div>
+                    <button class="btn-primary" onclick="alert('Recipe suggestions coming soon! 🍝')" style="margin-top: 15px;">
+                        COSA CUCINO?
+                    </button>
+                </div>
+
+                <!-- Stats Personali -->
+                <div class="stats-card">
+                    <div class="stats-title">
+                        <span style="margin-right: 8px;">💚</span>
+                        I TUOI NUMERI
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value">🌍 0.2kg</div>
+                            <div class="stat-label">CO2 salvata</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">💰 €5</div>
+                            <div class="stat-label">Risparmiati</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">🍽️ 0</div>
+                            <div class="stat-label">Ricette</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">⚡ 1</div>
+                            <div class="stat-label">Giorni streak</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Bar -->
+            <div class="tab-bar">
+                <a href="#" class="tab active">
+                    <div class="tab-icon">🏠</div>
+                    Home
+                </a>
+                <a href="#" class="tab" onclick="alert('Missioni extra coming soon! 🎯')">
+                    <div class="tab-icon">🎯</div>
+                    Missioni
+                </a>
+                <a href="#" class="tab" onclick="alert('Stats dettagliate coming soon! 📊')">
+                    <div class="tab-icon">📊</div>
+                    Stats
+                </a>
+                <a href="#" class="tab" onclick="alert('Profilo coming soon! 👤')">
+                    <div class="tab-icon">👤</div>
+                    Profilo
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentScreen = 1;
+        let selectedChoice = null;
+
+        function nextScreen(screenNumber) {
+            // Hide current screen
+            document.getElementById(`screen${currentScreen}`).classList.remove('active');
+            
+            // Show next screen
+            currentScreen = screenNumber;
+            document.getElementById(`screen${screenNumber}`).classList.add('active');
+        }
+
+        function selectChoice(choice) {
+            selectedChoice = choice;
+            
+            if (choice === 'photo') {
+                nextScreen(4);
+            } else if (choice === 'receipt') {
+                alert('🧾 Carica scontrino - Coming soon!\n\nPer ora prova con la foto del frigo 📸');
+            } else if (choice === 'voice') {
+                alert('🎙️ Input vocale - Coming soon!\n\nPer ora prova con la foto del frigo 📸');
+            }
+        }
+
+        function capturePhoto() {
+            // Simulate photo capture
+            const cameraView = document.getElementById('cameraView');
+            cameraView.innerHTML = '<div style="font-size: 48px;">📸</div><div>Foto scattata!</div>';
+            
+            // Show processing screen
+            setTimeout(() => {
+                nextScreen('4b');
+                
+                // Show results after "processing"
+                setTimeout(() => {
+                    nextScreen(5);
+                }, 2500);
+            }, 1000);
+        }
+
+        function createAccount(method) {
+            // Simulate account creation
+            alert(`✅ Account creato con ${method === 'email' ? 'Email' : method === 'apple' ? 'Apple' : 'Google'}!\n\nBenvenuto in Foodybank! 🎉`);
+            nextScreen(7);
+        }
+
+        function enableNotifications() {
+            // Simulate notification permission request
+            if ('Notification' in window) {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        alert('🔔 Notifiche attivate!\n\nTi ricorderemo la tua mission quotidiana. 🎯');
+                    }
+                    showMainApp();
+                });
+            } else {
+                alert('🔔 Notifiche attivate!\n\nTi ricorderemo la tua mission quotidiana. 🎯');
+                showMainApp();
+            }
+        }
+
+        function showMainApp() {
+            // Hide onboarding
+            document.getElementById('screen7').classList.remove('active');
+            
+            // Show main app with animation
+            const mainApp = document.getElementById('mainApp');
+            mainApp.style.opacity = '0';
+            mainApp.classList.add('active');
+            
+            setTimeout(() => {
+                mainApp.style.transition = 'opacity 0.5s';
+                mainApp.style.opacity = '1';
+            }, 100);
+
+            // Celebration
+            setTimeout(() => {
+                alert('🎉 Benvenuto in Foodybank!\n\nHai completato il tuo primo setup.\nOra completa la tua prima mission quotidiana! 🎯');
+            }, 1000);
+        }
+
+        // Easter egg - tap logo 3 times
+        let logoTaps = 0;
+        document.addEventListener('DOMContentLoaded', function() {
+            const headers = document.querySelectorAll('.onboarding-icon');
+            headers.forEach(header => {
+                header.addEventListener('click', function() {
+                    logoTaps++;
+                    if (logoTaps === 3) {
+                        alert("🥚 Easter Egg!\n\n👨‍💻 Onboarding Prototype v1.0\n🚀 Built for testing\n💚 Zero maintenance, maximum value!");
+                        logoTaps = 0;
+                    }
+                    setTimeout(() => { logoTaps = 0; }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
