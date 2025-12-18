@@ -559,6 +559,159 @@
         .hidden {
             display: none !important;
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 320px;
+            width: 90%;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            animation: modalSlide 0.3s ease-out;
+        }
+
+        @keyframes modalSlide {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        .modal-text {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .points-earned {
+            background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 15px 0;
+            display: inline-block;
+        }
+
+        .photo-upload {
+            border: 2px dashed #4CAF50;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            margin: 15px 0;
+            transition: background 0.2s;
+        }
+
+        .photo-upload:hover {
+            background: #f8fff8;
+        }
+
+        .photo-upload input {
+            display: none;
+        }
+
+        .recipe-grid {
+            display: grid;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .recipe-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .recipe-card:hover, .recipe-card.selected {
+            border-color: #4CAF50;
+            background: #f8fff8;
+        }
+
+        .recipe-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .recipe-ingredients {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .ad-banner {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: #333;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .ad-skip {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background: rgba(0,0,0,0.2);
+            color: white;
+            border: none;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            cursor: pointer;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        .success-animation {
+            animation: bounceAnim 0.6s ease-out;
+        }
+
+        @keyframes bounceAnim {
+            0%, 20%, 60%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            80% { transform: translateY(-5px); }
+        }
     </style>
 </head>
 <body>
@@ -738,7 +891,7 @@
                             👨‍🍳 <strong>Chef di oggi</strong><br>
                             Cosa cucini stasera? Ti suggeriamo ricette con quello che hai
                         </div>
-                        <button class="btn-primary" onclick="alert('Mission feature coming soon! 🚀')">INIZIA MISSION</button>
+                        <button class="btn-primary" onclick="startMission()">INIZIA MISSION</button>
                     </div>
                 </div>
 
@@ -762,7 +915,7 @@
                             <span>Latte</span>
                         </div>
                     </div>
-                    <button class="btn-primary" onclick="alert('Recipe suggestions coming soon! 🍝')" style="margin-top: 15px;">
+                    <button class="btn-primary" onclick="suggestRecipe()" style="margin-top: 15px;">
                         COSA CUCINO?
                     </button>
                 </div>
@@ -812,6 +965,111 @@
                     <div class="tab-icon">👤</div>
                     Profilo
                 </a>
+            </div>
+        </div>
+
+        <!-- Modal per Mission Photo -->
+        <div class="modal" id="photoMissionModal">
+            <div class="modal-content">
+                <div class="modal-icon">📸</div>
+                <div class="modal-title">Scatta & Scopri</div>
+                <div class="modal-text">Scatta una foto del tuo frigo per scoprire cosa hai e ricevere suggerimenti personalizzati!</div>
+
+                <div class="photo-upload" onclick="document.getElementById('photoInput').click()">
+                    <div style="font-size: 32px; margin-bottom: 10px;">📷</div>
+                    <div>Tocca per scattare foto</div>
+                    <input type="file" id="photoInput" accept="image/*" onchange="processPhoto()">
+                </div>
+
+                <div id="photoResult" class="hidden">
+                    <div class="loading">🔄 Analizziamo la tua foto...</div>
+                </div>
+
+                <button class="btn-primary" onclick="closeModal('photoMissionModal')" style="margin-top: 15px;">
+                    CHIUDI
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal per Recipe Suggestion -->
+        <div class="modal" id="recipeSuggestionModal">
+            <div class="modal-content">
+                <div class="modal-icon">👨‍🍳</div>
+                <div class="modal-title">Ricette Consigliate</div>
+                <div class="modal-text">Perfette per usare i tuoi ingredienti prima che scadano!</div>
+
+                <div class="recipe-grid" id="recipeGrid">
+                    <div class="recipe-card" onclick="selectRecipe(this, 'caprese')">
+                        <div class="recipe-title">🍅 Insalata Caprese</div>
+                        <div class="recipe-ingredients">Mozzarella, Pomodori, Basilico</div>
+                    </div>
+                    <div class="recipe-card" onclick="selectRecipe(this, 'pasta')">
+                        <div class="recipe-title">🍝 Pasta al Pomodoro</div>
+                        <div class="recipe-ingredients">Pomodori, Pasta, Aglio</div>
+                    </div>
+                    <div class="recipe-card" onclick="selectRecipe(this, 'pizza')">
+                        <div class="recipe-title">🍕 Pizza Margherita</div>
+                        <div class="recipe-ingredients">Mozzarella, Pomodori, Farina</div>
+                    </div>
+                </div>
+
+                <button class="btn-primary" onclick="confirmRecipe()" id="confirmRecipeBtn" style="opacity: 0.5;" disabled>
+                    CUCINO QUESTA! 🍴
+                </button>
+
+                <button class="btn-secondary" onclick="closeModal('recipeSuggestionModal')" style="margin-top: 10px; width: 100%;">
+                    CHIUDI
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal per Mission Completata -->
+        <div class="modal" id="missionCompleteModal">
+            <div class="modal-content">
+                <div class="modal-icon success-animation">🎉</div>
+                <div class="modal-title">Mission Completata!</div>
+                <div class="modal-text">Ottimo lavoro! Hai guadagnato punti e mantenuto il tuo streak.</div>
+
+                <div class="points-earned" id="pointsEarned">
+                    +30 punti
+                </div>
+
+                <!-- Simulazione Ad -->
+                <div class="ad-banner">
+                    <button class="ad-skip" onclick="skipAd()">Salta (3s)</button>
+                    <div style="font-size: 16px; font-weight: bold; margin-bottom: 5px;">🥗 HelloFresh</div>
+                    <div style="font-size: 12px;">Ricette fresche consegnate a casa tua!</div>
+                </div>
+
+                <button class="btn-primary" onclick="closeMissionComplete()">
+                    FANTASTICO!
+                </button>
+            </div>
+        </div>
+
+        <!-- Modal Zero Spreco -->
+        <div class="modal" id="zeroWasteModal">
+            <div class="modal-content">
+                <div class="modal-icon">🎯</div>
+                <div class="modal-title">Zero Spreco</div>
+                <div class="modal-text">Questi prodotti stanno per scadere. Come li hai usati?</div>
+
+                <div class="food-list" style="margin: 20px 0;">
+                    <div class="food-item">
+                        <span class="food-emoji">🧀</span>
+                        <span>Mozzarella</span>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-secondary" onclick="markFood('used')">✅ Usato</button>
+                    <button class="btn-secondary" onclick="markFood('wasted')">🗑️ Buttato</button>
+                    <button class="btn-secondary" onclick="markFood('good')">⏰ Ancora buono</button>
+                </div>
+
+                <button class="btn-primary" onclick="closeModal('zeroWasteModal')" style="margin-top: 15px;">
+                    CHIUDI
+                </button>
             </div>
         </div>
     </div>
@@ -896,6 +1154,162 @@
             setTimeout(() => {
                 alert('🎉 Benvenuto in Foodybank!\n\nHai completato il tuo primo setup.\nOra completa la tua prima mission quotidiana! 🎯');
             }, 1000);
+        }
+
+        // Main App Functions
+        let appState = {
+            streak: 1,
+            points: 25,
+            level: "Novizio",
+            selectedRecipe: null,
+            missionCompleted: false
+        };
+
+        function updateUI() {
+            const streakEl = document.getElementById('streakCount');
+            const pointsEl = document.getElementById('pointsCount');
+            const levelEl = document.getElementById('userLevel');
+            if (streakEl) streakEl.textContent = appState.streak;
+            if (pointsEl) pointsEl.textContent = appState.points;
+            if (levelEl) levelEl.textContent = appState.level;
+        }
+
+        function startMission() {
+            const missions = ['photo', 'recipe', 'zeroWaste'];
+            const randomMission = missions[Math.floor(Math.random() * missions.length)];
+
+            switch(randomMission) {
+                case 'photo':
+                    showModal('photoMissionModal');
+                    break;
+                case 'recipe':
+                    showModal('recipeSuggestionModal');
+                    break;
+                case 'zeroWaste':
+                    showModal('zeroWasteModal');
+                    break;
+            }
+        }
+
+        function suggestRecipe() {
+            showModal('recipeSuggestionModal');
+        }
+
+        function showModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        function processPhoto() {
+            const fileInput = document.getElementById('photoInput');
+            if (fileInput.files.length > 0) {
+                document.getElementById('photoResult').classList.remove('hidden');
+
+                setTimeout(() => {
+                    document.getElementById('photoResult').innerHTML = `
+                        <div style="color: #4CAF50; font-weight: bold; margin-bottom: 10px;">
+                            ✅ Foto elaborata con successo!
+                        </div>
+                        <div style="font-size: 14px; color: #666;">
+                            Trovati: Mozzarella, Pomodori, Latte, Uova, Yogurt
+                        </div>
+                    `;
+
+                    setTimeout(() => {
+                        completeMission(25);
+                    }, 1500);
+                }, 2000);
+            }
+        }
+
+        function selectRecipe(element, recipeId) {
+            document.querySelectorAll('.recipe-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+
+            element.classList.add('selected');
+            appState.selectedRecipe = recipeId;
+
+            const btn = document.getElementById('confirmRecipeBtn');
+            btn.disabled = false;
+            btn.style.opacity = '1';
+        }
+
+        function confirmRecipe() {
+            if (appState.selectedRecipe) {
+                closeModal('recipeSuggestionModal');
+                setTimeout(() => {
+                    completeMission(35);
+                }, 500);
+            }
+        }
+
+        function markFood(action) {
+            let points = 0;
+
+            switch(action) {
+                case 'used':
+                    points = 40;
+                    break;
+                case 'wasted':
+                    points = 10;
+                    break;
+                case 'good':
+                    points = 20;
+                    break;
+            }
+
+            closeModal('zeroWasteModal');
+            setTimeout(() => {
+                completeMission(points);
+            }, 500);
+        }
+
+        function completeMission(points) {
+            closeModal('photoMissionModal');
+            closeModal('recipeSuggestionModal');
+            closeModal('zeroWasteModal');
+
+            appState.points += points;
+            appState.missionCompleted = true;
+
+            document.getElementById('pointsEarned').textContent = `+${points} punti`;
+            showModal('missionCompleteModal');
+
+            updateUI();
+
+            setTimeout(() => {
+                const skipBtn = document.querySelector('.ad-skip');
+                if (skipBtn) {
+                    skipBtn.textContent = 'Salta';
+                    skipBtn.style.background = '#4CAF50';
+                }
+            }, 3000);
+        }
+
+        function skipAd() {
+            const adBanner = document.querySelector('.ad-banner');
+            if (adBanner) adBanner.style.display = 'none';
+        }
+
+        function closeMissionComplete() {
+            closeModal('missionCompleteModal');
+
+            const missionContent = document.getElementById('missionContent');
+            if (missionContent) {
+                missionContent.innerHTML = `
+                    <div class="mission-description" style="color: #4CAF50; text-align: center;">
+                        ✅ <strong>Mission Completata!</strong><br>
+                        Torna domani per una nuova sfida
+                    </div>
+                    <button class="btn-primary" disabled style="opacity: 0.5;">
+                        COMPLETATA PER OGGI
+                    </button>
+                `;
+            }
         }
 
         // Easter egg - tap logo 3 times
