@@ -1254,8 +1254,8 @@
             text-align: center;
             border-radius: 20px;
             width: auto;
-            display: inline-block;
-            margin-top: 12px;
+            display: block;
+            margin: 12px auto 0;
             transition: background 0.2s;
         }
 
@@ -1531,12 +1531,19 @@
         }
 
         .stats-full-header .btn-back {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 18px;
+            background: white;
+            border: 1px solid #E0E0E0;
+            color: #4CAF50;
+            font-size: 14px;
+            font-weight: 600;
             cursor: pointer;
-            padding: 0;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: background 0.2s;
+        }
+
+        .stats-full-header .btn-back:hover {
+            background: #F5F5F5;
         }
 
         .stats-full-header h2 {
@@ -1833,7 +1840,7 @@
                     <div class="stats-card">
                         <div class="stats-title">
                             <span style="margin-right: 8px;">💚</span>
-                            I TUOI NUMERI - OGGI
+                            I TUOI NUMERI
                         </div>
                         <div class="stats-grid">
                             <div class="stat-item">
