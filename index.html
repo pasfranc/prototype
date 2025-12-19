@@ -4046,24 +4046,17 @@
             // Update "Da usare prima" in Home
             updateDaUsarePrima();
 
-            // After 2 seconds, always go to Home
+            // After 2 seconds, proceed based on context
             setTimeout(() => {
                 closeSpesaSmart();
 
-                // If we're in onboarding, switch to main app
                 if (spesaSmartContext === 'onboarding') {
-                    // Hide all onboarding screens
-                    document.querySelectorAll('.onboarding-screen').forEach(screen => {
-                        screen.classList.remove('active');
-                    });
-                    // Hide onboarding container
-                    document.querySelector('.container').style.display = 'none';
-                    // Show main app
-                    document.getElementById('mainApp').style.display = 'block';
+                    // Go to screen 6 (Ottimo inizio!) - same as photo flow
+                    nextScreen(6);
+                } else if (spesaSmartContext === 'mission') {
+                    // Mission: go to Home
+                    navigateTo('home');
                 }
-
-                // Navigate to Home
-                navigateTo('home');
             }, 2000);
         }
 
