@@ -2277,21 +2277,13 @@
 </head>
 <body>
     <div class="container">
-        <!-- SCREEN 1: Hook Emotivo -->
+        <!-- SCREEN 1: Welcome -->
         <div class="onboarding-screen active" id="screen1">
-            <div class="onboarding-icon">🗑️</div>
-            <h1 class="onboarding-title">Quante cose butti perché te ne dimentichi?</h1>
-            <p class="onboarding-subtitle">Foodybank ti aiuta a usare quello che hai prima che sia troppo tardi</p>
-            <button class="btn-primary" onclick="nextScreen(2)">Continua →</button>
-            <a href="#" class="skip-link" onclick="event.preventDefault(); skipToMainApp()">Ho già un account</a>
-        </div>
-
-        <!-- SCREEN 2: Rimozione Paura -->
-        <div class="onboarding-screen" id="screen2">
-            <div class="onboarding-icon">✋</div>
-            <h1 class="onboarding-title">Non devi inserire tutto</h1>
-            <p class="onboarding-subtitle">Niente liste infinite. Niente lavoro noioso. Puoi iniziare con una sola azione.</p>
-            <button class="btn-primary" onclick="nextScreen(3)">Ok, fammi vedere →</button>
+            <div class="onboarding-icon">🧠</div>
+            <h1 class="onboarding-title">Non devi più ricordarti cosa c'è in frigo.</h1>
+            <p class="onboarding-subtitle">Foodybank lo tiene a mente per te.</p>
+            <button class="btn-primary" onclick="nextScreen(3)">Iniziamo →</button>
+            <a href="#" class="skip-link" onclick="event.preventDefault(); skipToMainApp()">Ho già un account? Accedi</a>
         </div>
 
         <!-- SCREEN 3: Scelta Pigra -->
@@ -3377,11 +3369,15 @@
         let currentScreen = 1;
         let selectedChoice = null;
 
+        // Onboarding refactor logs
+        console.log('✅ Welcome screen aggiornato - greenwashing rimosso');
+        console.log('✅ Screen 2 eliminato - flow compresso');
+
         function nextScreen(screenNumber) {
             // Hide current screen
             document.getElementById(`screen${currentScreen}`).classList.remove('active');
-            
-            // Show next screen
+
+            // Show next screen (skip screen 2 - removed)
             currentScreen = screenNumber;
             document.getElementById(`screen${screenNumber}`).classList.add('active');
         }
