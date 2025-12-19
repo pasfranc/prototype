@@ -2288,6 +2288,7 @@
 
         <!-- SCREEN 3: Start Point -->
         <div class="onboarding-screen" id="screen3">
+            <div class="onboarding-icon">🚀</div>
             <h1 class="onboarding-title">Facciamo un punto di partenza.</h1>
             <p class="onboarding-subtitle">Scatta una foto al frigo. Ci pensiamo noi.</p>
             <button class="btn-primary" onclick="selectChoice('photo')">📸 SCATTA FOTO</button>
@@ -2338,40 +2339,13 @@
 
         <!-- SCREEN 6: Registration -->
         <div class="onboarding-screen" id="screen6">
-            <div class="onboarding-icon">🎉</div>
-            <h1 class="onboarding-title">Ottimo inizio!</h1>
-            
-            <div class="benefits-list">
-                <div class="benefit-item">
-                    <span class="benefit-icon">•</span>
-                    <span>25 punti</span>
-                </div>
-                <div class="benefit-item">
-                    <span class="benefit-icon">•</span>
-                    <span>5 prodotti tracciati</span>
-                </div>
-                <div class="benefit-item">
-                    <span class="benefit-icon">•</span>
-                    <span>La tua prima mission ti aspetta</span>
-                </div>
-            </div>
-
-            <div class="warning-box">
-                <p class="warning-text">💾 Devi creare un account per continuare</p>
-            </div>
-
-            <div class="auth-buttons">
-                <div class="auth-btn auth-btn-email" onclick="createAccount('email')">
-                    📧 Continua con Email
-                </div>
-                <div class="auth-btn auth-btn-apple" onclick="createAccount('apple')">
-                    🍎 Continua con Apple
-                </div>
-                <div class="auth-btn" onclick="createAccount('google')">
-                    <span style="color: #4285F4;">G</span> Continua con Google
-                </div>
-            </div>
-
+            <div class="onboarding-icon">👤</div>
+            <h1 class="onboarding-title">Foodybank funziona solo se può ricordarsi di te.</h1>
+            <p class="onboarding-subtitle">
+                Analizziamo foto e scontrini: per questo serve un account.<br>
+                Senza, perderemmo il contesto.
+            </p>
+            <button class="btn-primary" onclick="createAccount('email')">Continua</button>
         </div>
 
         <!-- SCREEN 7: Notifiche -->
@@ -3349,6 +3323,8 @@
         console.log('✅ Start Point semplificato - focus su foto primaria');
         console.log('✅ Processing - screen pulito');
         console.log('✅ Payoff - titolo aggiornato');
+        console.log('✅ Start Point - emoji 🚀 aggiunta');
+        console.log('✅ Registrazione - copy account aggiornato con 👤');
 
         function nextScreen(screenNumber) {
             // Hide current screen
