@@ -4061,12 +4061,14 @@
 
             // After 2 seconds, proceed based on context
             setTimeout(() => {
+                // Save context before closing (closeSpesaSmart sets it to null)
+                const context = spesaSmartContext;
                 closeSpesaSmart();
 
-                if (spesaSmartContext === 'onboarding') {
+                if (context === 'onboarding') {
                     // Go to screen 6 (Ottimo inizio!) - same as photo flow
                     nextScreen(6);
-                } else if (spesaSmartContext === 'mission') {
+                } else if (context === 'mission') {
                     // Mission: go to Home
                     navigateTo('home');
                 }
