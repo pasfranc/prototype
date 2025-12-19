@@ -133,11 +133,6 @@
             border-color: black;
         }
 
-        .btn-email {
-            background: white;
-            color: #333;
-        }
-
         .social-icon {
             font-weight: bold;
             font-size: 18px;
@@ -2439,7 +2434,8 @@
                 Analizziamo foto e scontrini: per questo serve un account.<br>
                 Senza, perderemmo il contesto.
             </p>
-            <button class="btn-social btn-google" onclick="createAccount('google')">
+            <button class="btn-primary" onclick="createAccount('email')">Continua con Email</button>
+            <button class="btn-social btn-google" onclick="createAccount('google')" style="margin-top: 20px;">
                 <span class="social-icon">G</span> Continua con Google
             </button>
             <button class="btn-social btn-facebook" onclick="createAccount('facebook')">
@@ -2447,9 +2443,6 @@
             </button>
             <button class="btn-social btn-apple" onclick="createAccount('apple')">
                 <span class="social-icon"></span> Continua con Apple
-            </button>
-            <button class="btn-social btn-email" onclick="createAccount('email')">
-                <span class="social-icon">✉</span> Continua con Email
             </button>
         </div>
 
