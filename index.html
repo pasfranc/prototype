@@ -94,6 +94,50 @@
             transform: translateY(-2px);
         }
 
+        .btn-social {
+            width: 100%;
+            max-width: 300px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .btn-social:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-google {
+            background: white;
+            color: #333;
+        }
+
+        .btn-facebook {
+            background: #1877F2;
+            color: white;
+            border-color: #1877F2;
+        }
+
+        .btn-apple {
+            background: black;
+            color: white;
+            border-color: black;
+        }
+
+        .social-icon {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
         .btn-secondary {
             background: #f8f9fa;
             border: 1px solid #ddd;
@@ -2273,6 +2317,48 @@
             font-weight: bold;
             color: #4CAF50;
         }
+
+        /* Toast notifications */
+        .toast-container {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            pointer-events: none;
+        }
+
+        .toast {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            font-weight: 600;
+            font-size: 14px;
+            animation: slideDown 0.3s ease-out;
+            pointer-events: auto;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Fade out animation for shopping items */
+        .shopping-item.fade-out {
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+        }
     </style>
 </head>
 <body>
@@ -2348,27 +2434,27 @@
                 Analizziamo foto e scontrini: per questo serve un account.<br>
                 Senza, perderemmo il contesto.
             </p>
-            <button class="btn-primary" onclick="createAccount('email')">Continua</button>
+            <button class="btn-primary" onclick="createAccount('email')">Continua con Email</button>
+            <button class="btn-social btn-google" onclick="createAccount('google')" style="margin-top: 20px;">
+                <span class="social-icon">G</span> Continua con Google
+            </button>
+            <button class="btn-social btn-facebook" onclick="createAccount('facebook')">
+                <span class="social-icon">f</span> Continua con Facebook
+            </button>
+            <button class="btn-social btn-apple" onclick="createAccount('apple')">
+                <span class="social-icon"></span> Continua con Apple
+            </button>
         </div>
 
         <!-- SCREEN 7: Notifiche -->
         <div class="onboarding-screen" id="screen7">
-            <div class="onboarding-icon">🔥</div>
-            <h1 class="onboarding-title">Un'ultima cosa importante</h1>
-            <p class="onboarding-subtitle" style="font-weight: 600;">Il segreto è lo STREAK</p>
-            
-            <div class="benefits-list">
-                <div class="benefit-item">
-                    <span class="benefit-icon">📲</span>
-                    <span>Una notifica al giorno ti ricorda la mission (30 secondi)</span>
-                </div>
-            </div>
-
-            <div class="warning-box">
-                <p class="warning-text">Senza notifiche = Dimentichi = Perdi lo streak</p>
-            </div>
-
-            <button class="btn-primary" onclick="enableNotifications()">🔔 Attiva notifiche</button>
+            <div class="onboarding-icon">🔔</div>
+            <h1 class="onboarding-title">Per funzionare davvero, Foodybank deve poterti avvisare.</h1>
+            <p class="onboarding-subtitle">
+                Altrimenti non può decidere al posto tuo.
+                Ti avviseremo solo quando serve davvero.
+            </p>
+            <button class="btn-primary" onclick="enableNotifications()">🔔 Attiva avvisi</button>
         </div>
 
         <!-- MAIN APP (from previous prototype) -->
