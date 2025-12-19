@@ -1684,6 +1684,7 @@
             <h1 class="onboarding-title">Quante cose butti perché te ne dimentichi?</h1>
             <p class="onboarding-subtitle">Foodybank ti aiuta a usare quello che hai prima che sia troppo tardi</p>
             <button class="btn-primary" onclick="nextScreen(2)">Continua →</button>
+            <a href="#" class="skip-link" onclick="event.preventDefault(); skipToMainApp()">Ho già un account</a>
         </div>
 
         <!-- SCREEN 2: Rimozione Paura -->
@@ -2609,12 +2610,12 @@
         function showMainApp() {
             // Hide onboarding
             document.getElementById('screen7').classList.remove('active');
-            
+
             // Show main app with animation
             const mainApp = document.getElementById('mainApp');
             mainApp.style.opacity = '0';
             mainApp.classList.add('active');
-            
+
             setTimeout(() => {
                 mainApp.style.transition = 'opacity 0.5s';
                 mainApp.style.opacity = '1';
@@ -2624,6 +2625,18 @@
             setTimeout(() => {
                 alert('🎉 Benvenuto in Foodybank!\n\nHai completato il tuo primo setup.\nOra completa la tua prima mission quotidiana! 🎯');
             }, 1000);
+        }
+
+        function skipToMainApp() {
+            // Hide all onboarding screens
+            document.querySelectorAll('.onboarding-screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+
+            // Show main app immediately
+            const mainApp = document.getElementById('mainApp');
+            mainApp.classList.add('active');
+            mainApp.style.opacity = '1';
         }
 
         // Main App Functions
