@@ -4022,10 +4022,10 @@
             document.getElementById('uploadStep').style.display = 'none';
             document.getElementById('receiptStep').style.display = 'block';
 
-            // Auto-start processing after showing receipt
+            // Auto-start processing after showing receipt (1 sec)
             setTimeout(() => {
                 startProcessing();
-            }, 500);
+            }, 1000);
         }
 
         // Start processing (step 2 → step 3)
@@ -4059,17 +4059,20 @@
             // Update "Da usare prima" in Home
             updateDaUsarePrima();
 
-            // After 2 seconds, proceed based on context
+            // After 2 seconds, always go to Home
             setTimeout(() => {
+                closeSpesaSmart();
+
+                // If we're in onboarding, hide all onboarding screens first
                 if (spesaSmartContext === 'onboarding') {
-                    // Close Spesa Smart and go to onboarding success screen
-                    closeSpesaSmart();
-                    nextScreen(6); // Go to success screen
-                } else if (spesaSmartContext === 'mission') {
-                    // Close Spesa Smart and show mission complete modal
-                    closeSpesaSmart();
-                    showMissionCompleteModal();
+                    document.querySelectorAll('.onboarding-screen').forEach(screen => {
+                        screen.classList.remove('active');
+                    });
+                    document.querySelector('.container').style.display = 'none';
                 }
+
+                // Navigate to Home
+                navigateTo('home');
             }, 2000);
         }
 
