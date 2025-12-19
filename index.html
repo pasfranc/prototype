@@ -1536,6 +1536,343 @@
             background: #45a049;
         }
 
+        /* PROFILO SCREEN STYLES */
+        .profilo-content {
+            padding: 16px;
+            padding-bottom: 100px;
+        }
+
+        .profile-header {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .profile-stat {
+            font-size: 16px;
+            margin: 8px 0;
+            font-weight: 600;
+        }
+
+        .context-card {
+            background: white;
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .context-card.default {
+            border-color: #FFB74D;
+            background: #FFF9E6;
+        }
+
+        .context-header {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .context-warning {
+            background: #FFF3E0;
+            border: 1px solid #FFB74D;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 16px;
+            color: #E65100;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .context-list {
+            margin: 16px 0;
+        }
+
+        .context-item {
+            font-size: 14px;
+            color: #666;
+            margin: 8px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .context-footer {
+            font-size: 13px;
+            color: #999;
+            margin-top: 16px;
+            font-style: italic;
+        }
+
+        .btn-customize {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 14px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+            margin: 16px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+            50% { box-shadow: 0 0 20px 10px rgba(76, 175, 80, 0); }
+        }
+
+        .btn-customize:hover {
+            transform: translateY(-2px);
+            transition: transform 0.2s;
+        }
+
+        .settings-card {
+            background: white;
+            border: 1px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .settings-header {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+
+        .setting-label {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .setting-value {
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        /* Fullscreen Context Modal */
+        .context-fullscreen {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 375px;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 300;
+            display: none;
+            flex-direction: column;
+        }
+
+        .context-fullscreen.active {
+            display: flex;
+        }
+
+        .context-fs-header {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .context-fs-header h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .context-fs-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .context-fs-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .context-intro {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .context-example {
+            background: #F5F5F5;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            font-size: 13px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .context-textarea {
+            width: 100%;
+            min-height: 150px;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 14px;
+            font-family: inherit;
+            resize: vertical;
+            margin-bottom: 16px;
+        }
+
+        .context-textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        .context-ai-note {
+            background: #E8F5E9;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 13px;
+            color: #2E7D32;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .context-actions {
+            display: flex;
+            gap: 12px;
+            padding: 16px 20px;
+            background: white;
+            border-top: 1px solid #E0E0E0;
+        }
+
+        .btn-save {
+            flex: 1;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-cancel {
+            flex: 1;
+            background: white;
+            color: #666;
+            border: 1px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Confirmation Modal */
+        .context-confirm-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .context-confirm-modal.active {
+            display: flex;
+        }
+
+        .context-confirm-content {
+            background: white;
+            max-width: 320px;
+            width: 90%;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            animation: modalSlide 0.3s ease-out;
+        }
+
+        .confirm-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .confirm-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 16px;
+        }
+
+        .confirm-subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 16px;
+        }
+
+        .confirm-list {
+            text-align: left;
+            margin: 16px 0;
+        }
+
+        .confirm-list-item {
+            font-size: 14px;
+            color: #333;
+            margin: 8px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .confirm-message {
+            font-size: 14px;
+            color: #666;
+            margin: 16px 0;
+            line-height: 1.5;
+        }
+
         /* STATS FULL SCREEN STYLES */
         .stats-full-screen {
             position: fixed;
@@ -2040,6 +2377,59 @@
                 </div>
             </div>
 
+            <!-- PROFILO SCREEN -->
+            <div id="profilo-screen" class="screen hidden">
+                <div class="profilo-content">
+                    <!-- Profile Header -->
+                    <div class="profile-header">
+                        <div class="profile-stat">🔥 Streak: 12 giorni</div>
+                        <div class="profile-stat">⭐ Livello: Cuoco (340 punti)</div>
+                    </div>
+
+                    <!-- Context Card - Default State -->
+                    <div class="context-card default" id="contextCard">
+                        <div class="context-header">
+                            💡 IL TUO CONTESTO
+                        </div>
+
+                        <div class="context-warning">
+                            ⚠️ Stiamo usando impostazioni predefinite:
+                        </div>
+
+                        <div class="context-list">
+                            <div class="context-item">✓ Nessuna restrizione alimentare</div>
+                            <div class="context-item">✓ Nessuna allergia</div>
+                            <div class="context-item">✓ Cucini quando vuoi</div>
+                            <div class="context-item">✓ Ricette per 1-2 persone</div>
+                        </div>
+
+                        <button class="btn-customize" onclick="openContextModal()">
+                            🎯 PERSONALIZZA
+                        </button>
+
+                        <div class="context-footer">
+                            Non è giusto per te?<br>
+                            Aiutaci a conoscerti meglio!
+                        </div>
+                    </div>
+
+                    <!-- Settings Card -->
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            ⚙️ IMPOSTAZIONI
+                        </div>
+                        <div class="setting-item">
+                            <span class="setting-label">Notifiche</span>
+                            <span class="setting-value">ON</span>
+                        </div>
+                        <div class="setting-item">
+                            <span class="setting-label">Lingua</span>
+                            <span class="setting-value">Italiano</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Tab Bar -->
             <div class="tab-bar">
                 <a href="#" class="tab active" data-tab="home" onclick="event.preventDefault(); navigateTo('home')">
@@ -2054,7 +2444,7 @@
                     <div class="tab-icon">🛒</div>
                     Spesa
                 </a>
-                <a href="#" class="tab" data-tab="profilo" onclick="event.preventDefault(); alert('Profilo coming soon! 👤')">
+                <a href="#" class="tab" data-tab="profilo" onclick="event.preventDefault(); navigateTo('profilo')">
                     <div class="tab-icon">👤</div>
                     Profilo
                 </a>
@@ -2499,6 +2889,63 @@
                         <button class="btn-add-custom" onclick="addCustomProduct()">Aggiungi</button>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- CONTEXT FULLSCREEN MODAL -->
+        <div id="contextFullscreen" class="context-fullscreen">
+            <div class="context-fs-header">
+                <h2>💡 PARLACI DI TE</h2>
+                <button class="context-fs-close" onclick="closeContextModal()">×</button>
+            </div>
+
+            <div class="context-fs-content">
+                <div class="context-intro">
+                    <p>Al momento assumiamo tu possa mangiare tutto e cucinare quando vuoi.</p>
+                    <p style="margin-top: 12px;">Se hai restrizioni, preferenze o routine particolari, dillo qui!</p>
+                </div>
+
+                <div class="context-example">
+                    Es: Sono vegetariano, cucino solo la sera, ho 2 bambini, allergico alle noci...
+                </div>
+
+                <textarea
+                    id="contextTextarea"
+                    class="context-textarea"
+                    placeholder="Scrivi qui le tue preferenze..."
+                >Sono vegetariano, cucino solo la sera, ho 2 bambini, allergico alle noci</textarea>
+
+                <div class="context-ai-note">
+                    <span>🤖</span>
+                    <span>L'AI userà queste info per personalizzare tutto per te!</span>
+                </div>
+            </div>
+
+            <div class="context-actions">
+                <button class="btn-cancel" onclick="closeContextModal()">ANNULLA</button>
+                <button class="btn-save" onclick="saveContext()">SALVA</button>
+            </div>
+        </div>
+
+        <!-- CONTEXT CONFIRMATION MODAL -->
+        <div id="contextConfirmModal" class="context-confirm-modal">
+            <div class="context-confirm-content">
+                <div class="confirm-icon">✅</div>
+                <div class="confirm-title">Contesto salvato!</div>
+                <div class="confirm-subtitle">L'AI ora sa che:</div>
+
+                <div class="confirm-list">
+                    <div class="confirm-list-item">• Sei vegetariano</div>
+                    <div class="confirm-list-item">• Cucini solo la sera</div>
+                    <div class="confirm-list-item">• Hai 2 bambini</div>
+                    <div class="confirm-list-item">• Allergico alle noci</div>
+                </div>
+
+                <div class="confirm-message">
+                    I suggerimenti saranno più adatti a te da ora! 🎉
+                </div>
+
+                <button class="btn-primary" onclick="closeConfirmModal()">OK</button>
             </div>
         </div>
 
@@ -3096,6 +3543,58 @@
 
             // Open the modal
             showModal('zeroWasteModal');
+        }
+
+        // PROFILO - Context Management Functions
+
+        // Open context modal
+        function openContextModal() {
+            document.getElementById('contextFullscreen').classList.add('active');
+        }
+
+        // Close context modal
+        function closeContextModal() {
+            document.getElementById('contextFullscreen').classList.remove('active');
+        }
+
+        // Save context and show confirmation
+        function saveContext() {
+            // Close fullscreen modal
+            closeContextModal();
+
+            // Show confirmation modal
+            document.getElementById('contextConfirmModal').classList.add('active');
+
+            // Update context card after confirmation (will be triggered when closing confirm modal)
+        }
+
+        // Close confirmation modal and update context card
+        function closeConfirmModal() {
+            document.getElementById('contextConfirmModal').classList.remove('active');
+
+            // Update context card to show saved context
+            const contextCard = document.getElementById('contextCard');
+            contextCard.className = 'context-card'; // Remove 'default' class
+            contextCard.innerHTML = `
+                <div class="context-header">
+                    💡 IL TUO CONTESTO
+                </div>
+
+                <div class="context-list">
+                    <div class="context-item">✓ Dieta: Vegetariano</div>
+                    <div class="context-item">✓ Allergie: Noci</div>
+                    <div class="context-item">✓ Routine: Cucini solo la sera</div>
+                    <div class="context-item">✓ Famiglia: 2 bambini</div>
+                </div>
+
+                <button class="btn-customize" onclick="openContextModal()" style="animation: none;">
+                    🎯 MODIFICA
+                </button>
+
+                <div class="context-footer">
+                    Tutto OK? Puoi sempre modificare qui!
+                </div>
+            `;
         }
 
         // Easter egg - tap logo 3 times
