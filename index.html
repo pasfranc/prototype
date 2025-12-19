@@ -1536,6 +1536,268 @@
             background: #45a049;
         }
 
+        /* SPESA SMART STYLES */
+        .spesa-smart-screen {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 375px;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 300;
+            display: none;
+            flex-direction: column;
+        }
+
+        .spesa-smart-screen.active {
+            display: flex;
+        }
+
+        .spesa-smart-header {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .spesa-smart-header h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .spesa-smart-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .spesa-smart-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .upload-intro {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .upload-area {
+            background: #F5F5F5;
+            border: 2px dashed #4CAF50;
+            border-radius: 12px;
+            padding: 60px 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .upload-icon {
+            font-size: 64px;
+            margin-bottom: 16px;
+        }
+
+        .upload-text {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .btn-upload {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-upload:hover {
+            transform: translateY(-2px);
+            transition: transform 0.2s;
+        }
+
+        /* Receipt Display */
+        .receipt-container {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .receipt-header {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .receipt-address {
+            color: #666;
+            font-size: 11px;
+            margin-bottom: 4px;
+        }
+
+        .receipt-date {
+            color: #666;
+            font-size: 11px;
+            margin-bottom: 16px;
+        }
+
+        .receipt-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+        }
+
+        .receipt-divider {
+            border-top: 1px dashed #999;
+            margin: 12px 0;
+        }
+
+        .receipt-total {
+            font-weight: bold;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+        }
+
+        .receipt-footer {
+            color: #666;
+            font-size: 11px;
+            margin-top: 12px;
+        }
+
+        /* Processing Screen */
+        .processing-container {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .processing-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4CAF50;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 30px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .processing-steps {
+            text-align: left;
+            max-width: 300px;
+            margin: 30px auto;
+        }
+
+        .processing-step {
+            font-size: 14px;
+            color: #666;
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .processing-step.completed {
+            color: #4CAF50;
+        }
+
+        .processing-step.loading {
+            color: #999;
+        }
+
+        /* Result Screen */
+        .result-container {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .result-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .result-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .result-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .result-products {
+            background: white;
+            border: 1px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .result-product-item {
+            font-size: 16px;
+            color: #333;
+            margin: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .result-points {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
         /* PROFILO SCREEN STYLES */
         .profilo-content {
             padding: 16px;
@@ -2280,7 +2542,7 @@
                     <button class="btn-compact">VAI →</button>
                 </div>
 
-                <div class="mission-card-compact" onclick="showPlaceholder('spesa')">
+                <div class="mission-card-compact" onclick="openSpesaSmartMission()">
                     <div class="compact-icon">🧾</div>
                     <div class="compact-info">
                         <h4>Spesa Smart</h4>
@@ -2949,6 +3211,125 @@
             </div>
         </div>
 
+        <!-- SPESA SMART SCREEN -->
+        <div id="spesaSmartScreen" class="spesa-smart-screen">
+            <div class="spesa-smart-header">
+                <h2>🧾 SPESA SMART</h2>
+                <button class="spesa-smart-close" onclick="closeSpesaSmart()">×</button>
+            </div>
+
+            <div class="spesa-smart-content" id="spesaSmartContent">
+                <!-- Step 1: Upload -->
+                <div id="uploadStep">
+                    <p class="upload-intro">Carica lo scontrino della spesa</p>
+
+                    <div class="upload-area">
+                        <div class="upload-icon">📸</div>
+                        <div class="upload-text">Scatta o carica foto</div>
+                        <div class="upload-text">dello scontrino</div>
+                    </div>
+
+                    <button class="btn-upload" onclick="uploadReceipt()">CARICA FOTO</button>
+                </div>
+
+                <!-- Step 2: Receipt Display (hidden initially) -->
+                <div id="receiptStep" style="display: none;">
+                    <div class="receipt-container">
+                        <div class="receipt-header">ESSELUNGA</div>
+                        <div class="receipt-address">Via Roma 123, Milano</div>
+                        <div class="receipt-date">19/12/2024 - 14:32</div>
+
+                        <div class="receipt-divider"></div>
+
+                        <div class="receipt-item">
+                            <span>MUTTI PASSATA 500G</span>
+                            <span>€1.89</span>
+                        </div>
+                        <div class="receipt-item">
+                            <span>DATTERINI GIALLI</span>
+                            <span>€2.49</span>
+                        </div>
+                        <div class="receipt-item">
+                            <span>BARILLA PENNE 500G</span>
+                            <span>€1.19</span>
+                        </div>
+                        <div class="receipt-item">
+                            <span>GRANA PADANO 200G</span>
+                            <span>€3.99</span>
+                        </div>
+                        <div class="receipt-item">
+                            <span>COCA COLA 1.5L</span>
+                            <span>€1.49</span>
+                        </div>
+
+                        <div class="receipt-divider"></div>
+
+                        <div class="receipt-total">
+                            <span>TOTALE</span>
+                            <span>€11.05</span>
+                        </div>
+
+                        <div class="receipt-footer">Grazie per la visita!</div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Processing (hidden initially) -->
+                <div id="processingStep" style="display: none;">
+                    <div class="processing-container">
+                        <div class="processing-title">
+                            <span>🤖</span>
+                            <span>Sto elaborando...</span>
+                        </div>
+
+                        <div class="spinner"></div>
+
+                        <div class="processing-steps">
+                            <div class="processing-step completed" id="step1">
+                                ✓ Riconoscimento prodotti brandizzati
+                            </div>
+                            <div class="processing-step loading" id="step2">
+                                ⏳ Mapping prodotti generici...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Result (hidden initially) -->
+                <div id="resultStep" style="display: none;">
+                    <div class="result-container">
+                        <div class="result-icon">✅</div>
+                        <div class="result-title">COMPLETATO!</div>
+                        <div class="result-subtitle">5 prodotti aggiunti:</div>
+
+                        <div class="result-products">
+                            <div class="result-product-item">
+                                <span>🍅</span>
+                                <span>Passata di pomodoro</span>
+                            </div>
+                            <div class="result-product-item">
+                                <span>🍅</span>
+                                <span>Pomodorini</span>
+                            </div>
+                            <div class="result-product-item">
+                                <span>🍝</span>
+                                <span>Pasta</span>
+                            </div>
+                            <div class="result-product-item">
+                                <span>🧀</span>
+                                <span>Parmigiano</span>
+                            </div>
+                            <div class="result-product-item">
+                                <span>🥤</span>
+                                <span>Coca Cola</span>
+                            </div>
+                        </div>
+
+                        <div class="result-points">+25 punti</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- PLACEHOLDER SCREENS -->
         <div class="placeholder-screen hidden" id="placeholder-scatta">
             <div class="placeholder-content">
@@ -3006,11 +3387,12 @@
 
         function selectChoice(choice) {
             selectedChoice = choice;
-            
+
             if (choice === 'photo') {
                 nextScreen(4);
             } else if (choice === 'receipt') {
-                alert('🧾 Carica scontrino - Coming soon!\n\nPer ora prova con la foto del frigo 📸');
+                // Open Spesa Smart screen with onboarding context
+                openSpesaSmart('onboarding');
             } else if (choice === 'voice') {
                 alert('🎙️ Input vocale - Coming soon!\n\nPer ora prova con la foto del frigo 📸');
             }
@@ -3448,8 +3830,8 @@
 
         // NEW: Open Spesa Smart mission
         function openSpesaSmartMission() {
-            // Show placeholder for Spesa Smart mission
-            showPlaceholder('spesa');
+            // Open Spesa Smart screen with mission context
+            openSpesaSmart('mission');
         }
 
         // NEW: Open Add Product Modal
@@ -3595,6 +3977,116 @@
                     Tutto OK? Puoi sempre modificare qui!
                 </div>
             `;
+        }
+
+        // SPESA SMART - Receipt Processing Functions
+
+        let spesaSmartContext = null; // 'onboarding' or 'mission'
+
+        // Open Spesa Smart screen
+        function openSpesaSmart(context) {
+            spesaSmartContext = context;
+
+            // Reset to upload step
+            document.getElementById('uploadStep').style.display = 'block';
+            document.getElementById('receiptStep').style.display = 'none';
+            document.getElementById('processingStep').style.display = 'none';
+            document.getElementById('resultStep').style.display = 'none';
+
+            // Show screen
+            document.getElementById('spesaSmartScreen').classList.add('active');
+        }
+
+        // Close Spesa Smart screen
+        function closeSpesaSmart() {
+            document.getElementById('spesaSmartScreen').classList.remove('active');
+            spesaSmartContext = null;
+        }
+
+        // Upload receipt (step 1 → step 2)
+        function uploadReceipt() {
+            // Hide upload step, show receipt
+            document.getElementById('uploadStep').style.display = 'none';
+            document.getElementById('receiptStep').style.display = 'block';
+
+            // Auto-start processing after showing receipt
+            setTimeout(() => {
+                startProcessing();
+            }, 500);
+        }
+
+        // Start processing (step 2 → step 3)
+        function startProcessing() {
+            // Hide receipt, show processing
+            document.getElementById('receiptStep').style.display = 'none';
+            document.getElementById('processingStep').style.display = 'block';
+
+            // Reset processing steps
+            document.getElementById('step2').className = 'processing-step loading';
+            document.getElementById('step2').textContent = '⏳ Mapping prodotti generici...';
+
+            // After 1 second, complete step 2
+            setTimeout(() => {
+                document.getElementById('step2').className = 'processing-step completed';
+                document.getElementById('step2').textContent = '✓ Mapping prodotti generici';
+
+                // After another second, show result
+                setTimeout(() => {
+                    showReceiptResult();
+                }, 1000);
+            }, 1000);
+        }
+
+        // Show result (step 3 → step 4)
+        function showReceiptResult() {
+            // Hide processing, show result
+            document.getElementById('processingStep').style.display = 'none';
+            document.getElementById('resultStep').style.display = 'block';
+
+            // Update "Da usare prima" in Home
+            updateDaUsarePrima();
+
+            // After 2 seconds, proceed based on context
+            setTimeout(() => {
+                if (spesaSmartContext === 'onboarding') {
+                    // Close Spesa Smart and go to onboarding success screen
+                    closeSpesaSmart();
+                    nextScreen(6); // Go to success screen
+                } else if (spesaSmartContext === 'mission') {
+                    // Close Spesa Smart and show mission complete modal
+                    closeSpesaSmart();
+                    showMissionCompleteModal();
+                }
+            }, 2000);
+        }
+
+        // Update "Da usare prima" section in Home with receipt products
+        function updateDaUsarePrima() {
+            const productsPills = document.querySelector('.products-pills');
+            if (productsPills) {
+                productsPills.innerHTML = `
+                    <span class="product-pill">
+                        🍅 Passata di pomodoro
+                        <button class="btn-remove-pill" onclick="openZeroSprecoForProduct('Passata di pomodoro', '🍅')">×</button>
+                    </span>
+                    <span class="product-pill">
+                        🍅 Pomodorini
+                        <button class="btn-remove-pill" onclick="openZeroSprecoForProduct('Pomodorini', '🍅')">×</button>
+                    </span>
+                    <span class="product-pill">
+                        🍝 Pasta
+                        <button class="btn-remove-pill" onclick="openZeroSprecoForProduct('Pasta', '🍝')">×</button>
+                    </span>
+                    <span class="product-pill">
+                        🧀 Parmigiano
+                        <button class="btn-remove-pill" onclick="openZeroSprecoForProduct('Parmigiano', '🧀')">×</button>
+                    </span>
+                    <span class="product-pill">
+                        🥤 Coca Cola
+                        <button class="btn-remove-pill" onclick="openZeroSprecoForProduct('Coca Cola', '🥤')">×</button>
+                    </span>
+                `;
+            }
         }
 
         // Easter egg - tap logo 3 times
