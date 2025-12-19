@@ -2363,6 +2363,9 @@
     </style>
 </head>
 <body>
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
     <div class="container">
         <!-- SCREEN 1: Welcome -->
         <div class="onboarding-screen active" id="screen1">
@@ -3873,11 +3876,83 @@
         // NEW: Toggle shopping item checkbox
         function toggleShoppingItem(checkbox) {
             const item = checkbox.closest('.shopping-item');
+
             if (checkbox.checked) {
+                // Get product name and emoji
+                const productName = item.querySelector('.shopping-item-name').textContent.trim();
+
+                // Add checked class (line-through)
                 item.classList.add('checked');
+
+                // Fade out animation
+                item.classList.add('fade-out');
+
+                // After fade out, remove from DOM and add to Home
+                setTimeout(() => {
+                    item.remove();
+
+                    // Add product to "DA USARE PRIMA" in Home
+                    addProductToHome(productName);
+
+                    // Show toast notification
+                    showToast(`${productName} aggiunto al frigo`);
+                }, 300);
             } else {
                 item.classList.remove('checked');
             }
+        }
+
+        // Show toast notification
+        function showToast(message) {
+            const toastContainer = document.getElementById('toastContainer');
+
+            // Create toast element
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+
+            // Add to container
+            toastContainer.appendChild(toast);
+
+            // Auto-dismiss after 2 seconds
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 2000);
+        }
+
+        // Add product to "DA USARE PRIMA" section in Home
+        function addProductToHome(productText) {
+            const productsPills = document.querySelector('.products-pills');
+
+            // Parse emoji and name from text (e.g., "🥛 Latte")
+            const parts = productText.trim().split(' ');
+            const emoji = parts[0];
+            const name = parts.slice(1).join(' ');
+
+            // Check if product already exists
+            const existingProducts = Array.from(productsPills.querySelectorAll('.product-pill'));
+            const alreadyExists = existingProducts.some(pill => {
+                const pillText = pill.textContent.trim();
+                return pillText.includes(name);
+            });
+
+            if (alreadyExists) {
+                return; // Don't duplicate
+            }
+
+            // Create new product pill
+            const newPill = document.createElement('span');
+            newPill.className = 'product-pill';
+            newPill.innerHTML = `
+                ${emoji} ${name}
+                <button class="btn-remove-pill" onclick="openZeroSprecoForProduct('${name}', '${emoji}')">×</button>
+            `;
+
+            // Add to end of list (append)
+            productsPills.appendChild(newPill);
         }
 
         // NEW: Open Spesa Smart mission
