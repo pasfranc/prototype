@@ -2286,24 +2286,12 @@
             <a href="#" class="skip-link" onclick="event.preventDefault(); skipToMainApp()">Ho già un account? Accedi</a>
         </div>
 
-        <!-- SCREEN 3: Scelta Pigra -->
+        <!-- SCREEN 3: Start Point -->
         <div class="onboarding-screen" id="screen3">
-            <h1 class="onboarding-title">Come vuoi iniziare?</h1>
-            <div class="choice-options">
-                <div class="choice-card" onclick="selectChoice('photo')">
-                    <div class="choice-icon">📸</div>
-                    <div class="choice-text">Scatta una foto al frigo</div>
-                </div>
-                <div class="choice-card" onclick="selectChoice('receipt')">
-                    <div class="choice-icon">🧾</div>
-                    <div class="choice-text">Carica uno scontrino</div>
-                </div>
-                <div class="choice-card" onclick="selectChoice('voice')">
-                    <div class="choice-icon">🎙️</div>
-                    <div class="choice-text">Dimmi cosa hai comprato</div>
-                </div>
-            </div>
-            <p class="choice-hint">⚡ Bastano 10 secondi</p>
+            <h1 class="onboarding-title">Facciamo un punto di partenza.</h1>
+            <p class="onboarding-subtitle">Scatta una foto al frigo. Ci pensiamo noi.</p>
+            <button class="btn-primary" onclick="selectChoice('photo')">📸 SCATTA FOTO</button>
+            <a href="#" class="skip-link" onclick="event.preventDefault(); selectChoice('receipt')" style="margin-top: 20px;">Ho appena fatto la spesa (carica scontrino)</a>
         </div>
 
         <!-- SCREEN 4: Camera / Action -->
@@ -3372,6 +3360,7 @@
         // Onboarding refactor logs
         console.log('✅ Welcome screen aggiornato - greenwashing rimosso');
         console.log('✅ Screen 2 eliminato - flow compresso');
+        console.log('✅ Start Point semplificato - focus su foto primaria');
 
         function nextScreen(screenNumber) {
             // Hide current screen
