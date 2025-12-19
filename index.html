@@ -4050,12 +4050,16 @@
             setTimeout(() => {
                 closeSpesaSmart();
 
-                // If we're in onboarding, hide all onboarding screens first
+                // If we're in onboarding, switch to main app
                 if (spesaSmartContext === 'onboarding') {
+                    // Hide all onboarding screens
                     document.querySelectorAll('.onboarding-screen').forEach(screen => {
                         screen.classList.remove('active');
                     });
+                    // Hide onboarding container
                     document.querySelector('.container').style.display = 'none';
+                    // Show main app
+                    document.getElementById('mainApp').style.display = 'block';
                 }
 
                 // Navigate to Home
