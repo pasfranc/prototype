@@ -2314,40 +2314,26 @@
             </div>
         </div>
 
-        <!-- SCREEN 5: Risultato + Prodotti -->
+        <!-- SCREEN 5: Payoff -->
         <div class="onboarding-screen" id="screen5">
-            <div class="onboarding-icon">✅</div>
-            <h1 class="onboarding-title">Riconoscimento completato!</h1>
-            <p class="onboarding-subtitle">Ecco cosa hai:</p>
-            
+            <h1 class="onboarding-title">Ok. Ora teniamo d'occhio per primi:</h1>
+
             <div class="products-list">
                 <div class="product-item">
-                    <span class="product-emoji">🥛</span>
-                    <span>Latte</span>
-                </div>
-                <div class="product-item">
-                    <span class="product-emoji">🥚</span>
-                    <span>Uova</span>
+                    <span class="product-emoji">🧀</span>
+                    <span>Mozzarella</span>
                 </div>
                 <div class="product-item">
                     <span class="product-emoji">🍅</span>
                     <span>Pomodori</span>
                 </div>
                 <div class="product-item">
-                    <span class="product-emoji">🧀</span>
-                    <span>Mozzarella</span>
-                </div>
-                <div class="product-item">
-                    <span class="product-emoji">🍝</span>
-                    <span>Pasta</span>
+                    <span class="product-emoji">🥛</span>
+                    <span>Latte</span>
                 </div>
             </div>
 
-            <div class="product-count">5 prodotti riconosciuti</div>
-            
-            <div class="points-badge">+25 punti! 🎉</div>
-            
-            <button class="btn-primary" onclick="nextScreen(6)">Salva e continua →</button>
+            <button class="btn-primary" onclick="nextScreen(6)">Ottimo!</button>
         </div>
 
         <!-- SCREEN 6: Registration -->
@@ -3361,6 +3347,8 @@
         console.log('✅ Welcome screen aggiornato - greenwashing rimosso');
         console.log('✅ Screen 2 eliminato - flow compresso');
         console.log('✅ Start Point semplificato - focus su foto primaria');
+        console.log('✅ Processing - screen pulito');
+        console.log('✅ Payoff - titolo aggiornato');
 
         function nextScreen(screenNumber) {
             // Hide current screen
